@@ -1,11 +1,14 @@
-#include "mainwindow.h"
+#include "Utils/database.h"
+#include "Views/mainwindow.h"
 
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
+    QApplication app(argc, argv);
+    DataBase* database = DataBase::getInstance();
+    database->connect();
     MainWindow w;
     w.show();
-    return a.exec();
+    return app.exec();
 }

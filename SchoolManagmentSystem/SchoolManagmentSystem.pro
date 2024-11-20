@@ -10,15 +10,15 @@ SOURCES += \
     Utils/database.cpp \
     Utils/logger.cpp \
     main.cpp \
-    View/mainwindow.cpp
+    Views/mainwindow.cpp
 
 HEADERS += \
     Utils/database.h \
-    View/mainwindow.h \
+    Views/mainwindow.h \
     Utils/logger.h
 
 FORMS += \
-    View/mainwindow.ui
+    Views/mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
