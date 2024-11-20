@@ -1,6 +1,8 @@
 #ifndef IGRADESDAO_H
 #define IGRADESDAO_H
 
+#include "../Entity/grade.h"
+
 #include <QList>
 #include <QString>
 

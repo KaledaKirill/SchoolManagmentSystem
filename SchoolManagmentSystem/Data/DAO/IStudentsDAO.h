@@ -1,6 +1,8 @@
 #ifndef ISTUDENTSDAO_H
 #define ISTUDENTSDAO_H
 
+#include "../Entity/student.h"
+
 #include <QStringList>
 #include <QList>
 

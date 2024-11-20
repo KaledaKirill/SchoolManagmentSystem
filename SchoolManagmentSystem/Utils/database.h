@@ -3,7 +3,7 @@
 
 #include <QtSql>
 #include <QtSql/QSqlDatabase>
-#include "Utils/Logger.h"
+#include "Utils/logger.h"
 
 class DataBase
 {

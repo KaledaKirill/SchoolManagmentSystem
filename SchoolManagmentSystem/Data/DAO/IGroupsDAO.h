@@ -1,6 +1,8 @@
 #ifndef IGROUPSDAO_H
 #define IGROUPSDAO_H
 
+#include "../Entity/group.h"
+
 #include <QStringList>
 
 class IGroupsDAO
