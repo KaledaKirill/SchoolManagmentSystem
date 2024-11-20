@@ -2,21 +2,27 @@ QT       += core gui widgets sql
 
 CONFIG += c++17
 
-# You can make your code fail to compile if it uses deprecated APIs.
-# In order to do so, uncomment the following line.
-#DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
-
 SOURCES += \
     Utils/database.cpp \
     Utils/logger.cpp \
+    Data/Entity/grade.cpp \
+    Data/Entity/group.cpp \
     main.cpp \
-    Views/mainwindow.cpp
+    Views/mainwindow.cpp \
+    Data/Entity/student.cpp
 
 HEADERS += \
+    Data/DAO/IGradesDAO.h \
+    Data/DAO/IGroupsDAO.h \
+    Data/DAO/IStudentsDAO.h \
+    Data/DAO/ISubjectsDAO.h \
     Utils/database.h \
     Views/mainwindow.h \
     Utils/logger.h \
-    Exceptions/notworkingrequest.h
+    Exceptions/notworkingrequest.h \
+    Data/Entity/grade.h \
+    Data/Entity/group.h \
+    Data/Entity/student.h
 
 FORMS += \
     Views/mainwindow.ui
