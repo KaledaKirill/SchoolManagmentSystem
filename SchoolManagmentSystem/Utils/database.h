@@ -14,7 +14,9 @@ public:
 private:
     QSqlDatabase _dataBase;
     Logger _log;
+
     DataBase() {}
+    void createTables();
 
 };
 

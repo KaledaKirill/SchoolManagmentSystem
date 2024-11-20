@@ -15,7 +15,8 @@ SOURCES += \
 HEADERS += \
     Utils/database.h \
     Views/mainwindow.h \
-    Utils/logger.h
+    Utils/logger.h \
+    Exceptions/notworkingrequest.h
 
 FORMS += \
     Views/mainwindow.ui
