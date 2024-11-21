@@ -9,11 +9,14 @@ SOURCES += \
     Data/Entity/grade.cpp \
     Data/Entity/group.cpp \
     Data/DAO/groupsdao.cpp \
+    Views/Forms/TeacherWindowPages/teacherwindowjournalpage.cpp \
+    Views/Forms/TeacherWindowPages/teacherwindowschedulepage.cpp \
+    Views/Forms/teacherwindow.cpp \
     main.cpp \
-    Views/mainwindow.cpp \
     Data/Entity/student.cpp \
     Data/DAO/studentsdao.cpp \
-    Data/DAO/subjectsdao.cpp
+    Data/DAO/subjectsdao.cpp \
+    Views/Forms/TeacherWindowPages/teacherwindowgroupspage.cpp
 
 HEADERS += \
     Data/DAO/IGradesDAO.h \
@@ -22,7 +25,6 @@ HEADERS += \
     Data/DAO/ISubjectsDAO.h \
     Data/DAO/gradesdao.h \
     Utils/database.h \
-    Views/mainwindow.h \
     Utils/logger.h \
     Exceptions/notworkingrequest.h \
     Data/Entity/grade.h \
@@ -32,10 +34,14 @@ HEADERS += \
     Data/DAO/studentsdao.h \
     Data/DAO/subjectsdao.h \
     Exceptions/groupnotfound.h \
-    Exceptions/studentnotfound.h
+    Exceptions/studentnotfound.h \
+    Views/Forms/TeacherWindowPages/teacherwindowjournalpage.h \
+    Views/Forms/TeacherWindowPages/teacherwindowschedulepage.h \
+    Views/Forms/teacherwindow.h \
+    Views/Forms/TeacherWindowPages/teacherwindowgroupspage.h
 
 FORMS += \
-    Views/mainwindow.ui
+    Views/Forms/teacherwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

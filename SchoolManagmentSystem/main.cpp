@@ -1,5 +1,5 @@
 #include "Utils/database.h"
-#include "Views/mainwindow.h"
+#include "Views/Forms/teacherwindow.h"
 
 #include <QApplication>
 
@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
     DataBase* database = DataBase::getInstance();
     database->connect();
-    MainWindow w;
+    TeacherWindow w;
     w.show();
     return app.exec();
 }
