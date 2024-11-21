@@ -1,7 +1,7 @@
 #ifndef GROUP_H
 #define GROUP_H
 
-#include "Student.h"
+#include "student.h"
 
 #include <QString>
 #include <QList>
@@ -11,13 +11,15 @@ class Group
 {
 
 public:
+    Group(const QString& groupName, const QList<Student>& studentsList = QList<Student>(), const QStringList& subjectsList = QStringList());
+
     bool addSubject(const QString& subject);
     bool deleteSubject(const QString& subject);
 
     bool addStudent(const Student& student);
     bool deleteStudent(const Student& student);
 
-    QString getGroupName() const;
+    QString getName() const;
     void setGroupName(const QString& groupName);
 
     QList<Student> getStudentsList() const;
@@ -27,7 +29,7 @@ public:
     void setSubjectsList(const QStringList& subjectsList);
 
 private:
-    QString groupName;
+    QString name;
     QList<Student> studentsList;
     QStringList subjectsList;
 

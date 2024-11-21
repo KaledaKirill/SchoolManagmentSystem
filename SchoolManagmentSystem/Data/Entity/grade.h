@@ -8,6 +8,8 @@ class Grade
 {
 
 public:
+    Grade(const int value, const QDate& date, const QString& subject, const QString& studentName);
+
     int getGradeValue() const;
     void setGradeValue(int value);
 
@@ -19,6 +21,10 @@ public:
 
     QString getStudentName() const;
     void setStudentName(const QString& studentName);
+
+    bool operator==(const Grade& other) const;
+
+    bool operator!=(const Grade& other) const;
 
 private:
     int gradeValue;

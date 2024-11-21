@@ -1,17 +1,17 @@
-#ifndef ADMINISTRATORNOTFOUND_H
-#define ADMINISTRATORNOTFOUND_H
+#ifndef NOTWORKINGREQUEST_H
+#define NOTWORKINGREQUEST_H
 
 #include <QString>
 
-class AdministratorNotFound
+class NotWorkingRequest
 {
-
 public:
-    AdministratorNotFound(const QString& message) : _message(message) {}
-    QString what() const { return "Administraot not found. Exception: " + _message; }
+    NotWorkingRequest(const QString& message) : _message(message) {}
+    QString what() const { return "Not working request. Exception: " + _message; }
 
 private:
     QString _message;
+
 };
 
 #endif

@@ -11,7 +11,7 @@ class IGroupsDAO
 public:
     virtual QStringList getAllGroupNames() = 0;
     virtual Group getGroup(const QString& groupName) = 0;
-    virtual void addGroup(const Group& group) = 0;
+    virtual void addGroup(const QString& groupName) = 0;
     virtual void deleteGroup(const QString& groupName) = 0;
     virtual ~IGroupsDAO() = default;
 

@@ -8,8 +8,9 @@
 
 class Student
 {
-
 public:
+    Student(const QString& name, const QString& group, const QList<Grade>& gradesList = QList<Grade>());
+
     bool addGrade(const Grade& grade);
     bool deleteGrade(const Grade& grade);
 
@@ -22,8 +23,11 @@ public:
     QList<Grade> getGradesList() const;
     void setGradesList(const QList<Grade>& gradesList);
 
+    bool operator==(const Student& other) const;
+    bool operator!=(const Student& other) const;
+
 private:
-    QString studentName;
+    QString name;
     QString group;
     QList<Grade> gradesList;
 

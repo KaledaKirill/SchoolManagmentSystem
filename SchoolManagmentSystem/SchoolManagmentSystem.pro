@@ -3,26 +3,36 @@ QT       += core gui widgets sql
 CONFIG += c++17
 
 SOURCES += \
+    Data/DAO/gradesdao.cpp \
     Utils/database.cpp \
     Utils/logger.cpp \
     Data/Entity/grade.cpp \
     Data/Entity/group.cpp \
+    Data/DAO/groupsdao.cpp \
     main.cpp \
     Views/mainwindow.cpp \
-    Data/Entity/student.cpp
+    Data/Entity/student.cpp \
+    Data/DAO/studentsdao.cpp \
+    Data/DAO/subjectsdao.cpp
 
 HEADERS += \
     Data/DAO/IGradesDAO.h \
     Data/DAO/IGroupsDAO.h \
     Data/DAO/IStudentsDAO.h \
     Data/DAO/ISubjectsDAO.h \
+    Data/DAO/gradesdao.h \
     Utils/database.h \
     Views/mainwindow.h \
     Utils/logger.h \
     Exceptions/notworkingrequest.h \
     Data/Entity/grade.h \
     Data/Entity/group.h \
-    Data/Entity/student.h
+    Data/Entity/student.h \
+    Data/DAO/groupsdao.h \
+    Data/DAO/studentsdao.h \
+    Data/DAO/subjectsdao.h \
+    Exceptions/groupnotfound.h \
+    Exceptions/studentnotfound.h
 
 FORMS += \
     Views/mainwindow.ui
