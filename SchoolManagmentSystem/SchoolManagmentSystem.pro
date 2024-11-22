@@ -12,6 +12,7 @@ SOURCES += \
     Views/Forms/TeacherWindowPages/teacherwindowjournalpage.cpp \
     Views/Forms/TeacherWindowPages/teacherwindowschedulepage.cpp \
     Views/Forms/teacherwindow.cpp \
+    Data/Model/groupspagemodel.cpp \
     main.cpp \
     Data/Entity/student.cpp \
     Data/DAO/studentsdao.cpp \
@@ -38,7 +39,8 @@ HEADERS += \
     Views/Forms/TeacherWindowPages/teacherwindowjournalpage.h \
     Views/Forms/TeacherWindowPages/teacherwindowschedulepage.h \
     Views/Forms/teacherwindow.h \
-    Views/Forms/TeacherWindowPages/teacherwindowgroupspage.h
+    Views/Forms/TeacherWindowPages/teacherwindowgroupspage.h \
+    Data/Model/groupspagemodel.h
 
 FORMS += \
     Views/Forms/teacherwindow.ui

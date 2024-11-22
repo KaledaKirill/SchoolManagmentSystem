@@ -11,6 +11,7 @@ class Group
 {
 
 public:
+    Group();
     Group(const QString& groupName, const QList<Student>& studentsList = QList<Student>(), const QStringList& subjectsList = QStringList());
 
     bool addSubject(const QString& subject);
@@ -18,11 +19,13 @@ public:
 
     bool addStudent(const Student& student);
     bool deleteStudent(const Student& student);
+    bool deleteStudentByName(const QString& studentName);
 
     QString getName() const;
     void setGroupName(const QString& groupName);
 
     QList<Student> getStudentsList() const;
+    QStringList getStudentNamesList() const;
     void setStudentsList(const QList<Student>& studentsList);
 
     QStringList getSubjectsList() const;
@@ -31,8 +34,10 @@ public:
 private:
     QString name;
     QList<Student> studentsList;
+    QStringList studentNamesList;
     QStringList subjectsList;
 
+    void fillStudentNamesList();
 };
 
 #endif

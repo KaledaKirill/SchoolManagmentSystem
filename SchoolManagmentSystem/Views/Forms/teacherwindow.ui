@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>TeacherWindow</class>
+ <widget class="QMainWindow" name="TeacherWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -103,6 +103,10 @@ QTableView {
     background-color: #ffffff; 
 }
 
+QListView {
+    font-size: 14px; 
+}
+
 QHeaderView {
     background-color: #ffffff;
 }
@@ -112,6 +116,19 @@ QHeaderView::section {
     color: white;
     padding: 4px;
     border: 1px solid #191970;
+}
+
+QLineEdit { 
+	font-size: 14px; 
+}
+
+QComboBox { 
+	font-size: 14px; 
+	padding: 5px; 
+} 
+
+QComboBox QAbstractItemView { 
+	font-size: 14px;  
 }
 </string>
   </property>

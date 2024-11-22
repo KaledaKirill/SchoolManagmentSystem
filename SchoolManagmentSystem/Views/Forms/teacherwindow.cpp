@@ -1,6 +1,8 @@
 #include "teacherwindow.h"
 #include "ui_teacherwindow.h"
 
+#include <QInputDialog>
+
 TeacherWindow::TeacherWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::TeacherWindow)
@@ -31,35 +33,35 @@ TeacherWindow::~TeacherWindow()
 
 void TeacherWindow::clickedBtnAddStudent()
 {
-
+    teacherWindowGroupsPage->addStudent();
 }
 
 void TeacherWindow::clickedBtnDeleteStudent()
 {
-
+    teacherWindowGroupsPage->deleteStudent();
 }
 
 void TeacherWindow::clickedBtnAddSubject()
 {
-
+    teacherWindowGroupsPage->addSubject();
 }
 
 void TeacherWindow::clickedBtnDeleteSubject()
 {
-
+    teacherWindowGroupsPage->deleteSubject();
 }
 
 void TeacherWindow::clickedBtnAddGroup()
 {
-
+    teacherWindowGroupsPage->addGroup();
 }
 
 void TeacherWindow::clickedBtnDeleteGroup()
 {
-
+    teacherWindowGroupsPage->deleteGroup();
 }
 
 void TeacherWindow::clickedBtnChooseGroup()
 {
-
+    teacherWindowGroupsPage->chooseGroup();
 }
