@@ -34,6 +34,10 @@ private slots:
 
     void clickedBtnChooseGroup();
 
+    void onTabChanged(int index);
+
+    void clickedBtnChooseGroupOnJournalPage();
+    void clickedBtnChooseSubject();
 
 private:
     Ui::TeacherWindow* ui;

@@ -5,8 +5,7 @@
 #include "../../Exceptions/notworkingrequest.h"
 
 GroupsPageModel::GroupsPageModel()
-    :
-    groupsDAO(new GroupsDAO),
+    : groupsDAO(new GroupsDAO),
     subjectsDAO(new SubjectsDAO),
     studentsDAO(new StudentsDAO)
 {

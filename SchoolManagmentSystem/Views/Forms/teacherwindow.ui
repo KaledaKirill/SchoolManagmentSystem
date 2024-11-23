@@ -135,9 +135,9 @@ QComboBox QAbstractItemView {
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <widget class="QTabWidget" name="tabWidget">
+     <widget class="QTabWidget" name="mainTabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -388,7 +388,7 @@ QComboBox QAbstractItemView {
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_8">
             <item>
-             <widget class="QTableView" name="tableView">
+             <widget class="QTableView" name="journalTableView">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                 <horstretch>0</horstretch>
@@ -399,6 +399,29 @@ QComboBox QAbstractItemView {
             </item>
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_6">
+              <item>
+               <widget class="QLineEdit" name="dateLineEdit">
+                <property name="minimumSize">
+                 <size>
+                  <width>120</width>
+                  <height>35</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="addDateBtn">
+                <property name="minimumSize">
+                 <size>
+                  <width>120</width>
+                  <height>35</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>добавить дату</string>
+                </property>
+               </widget>
+              </item>
               <item>
                <spacer name="horizontalSpacer_3">
                 <property name="orientation">
@@ -413,20 +436,46 @@ QComboBox QAbstractItemView {
                </spacer>
               </item>
               <item>
-               <widget class="QComboBox" name="comboBox_4">
+               <widget class="QComboBox" name="quartersCbx">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <property name="minimumSize">
                  <size>
-                  <width>200</width>
+                  <width>120</width>
                   <height>35</height>
                  </size>
                 </property>
+                <item>
+                 <property name="text">
+                  <string>1 четверть</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>2 четверть</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>3 четверть</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>4 четверть</string>
+                 </property>
+                </item>
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="pushButton_9">
+               <widget class="QPushButton" name="chooseQuarterBtn">
                 <property name="minimumSize">
                  <size>
-                  <width>100</width>
+                  <width>120</width>
                   <height>35</height>
                  </size>
                 </property>
@@ -445,7 +494,7 @@ QComboBox QAbstractItemView {
            </attribute>
            <layout class="QHBoxLayout" name="horizontalLayout_7">
             <item>
-             <widget class="QTableView" name="tableView_2"/>
+             <widget class="QTableView" name="resJournalTableView"/>
             </item>
            </layout>
           </widget>
@@ -486,7 +535,7 @@ QComboBox QAbstractItemView {
            </spacer>
           </item>
           <item>
-           <widget class="QComboBox" name="comboBox_2">
+           <widget class="QComboBox" name="groupsCbx_2">
             <property name="minimumSize">
              <size>
               <width>200</width>
@@ -496,7 +545,20 @@ QComboBox QAbstractItemView {
            </widget>
           </item>
           <item>
-           <widget class="QComboBox" name="comboBox_3">
+           <widget class="QPushButton" name="chooseGroupBtnOnJournalPage">
+            <property name="minimumSize">
+             <size>
+              <width>200</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>выбрать класс</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="subjectsCbx">
             <property name="minimumSize">
              <size>
               <width>200</width>
@@ -506,7 +568,7 @@ QComboBox QAbstractItemView {
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_8">
+           <widget class="QPushButton" name="chooseSubjectBtn">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -526,7 +588,7 @@ QComboBox QAbstractItemView {
              </size>
             </property>
             <property name="text">
-             <string>выбрать</string>
+             <string>выбрать предмет</string>
             </property>
            </widget>
           </item>

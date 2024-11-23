@@ -24,6 +24,11 @@ TeacherWindow::TeacherWindow(QWidget *parent)
     connect(ui->deleteSubjectBtn, SIGNAL(clicked(bool)), this, SLOT(clickedBtnDeleteSubject()));
 
     connect(ui->chooseGroupBtn, SIGNAL(clicked(bool)), this, SLOT(clickedBtnChooseGroup()));
+
+    connect(ui->mainTabWidget, SIGNAL(currentChanged(int)), this, SLOT(onTabChanged(int)));
+
+    connect(ui->chooseSubjectBtn, SIGNAL(clicked(bool)), this, SLOT(clickedBtnChooseSubject()));
+    connect(ui->chooseGroupBtnOnJournalPage, SIGNAL(clicked(bool)), this, SLOT(clickedBtnChooseGroupOnJournalPage()));
 }
 
 TeacherWindow::~TeacherWindow()
@@ -65,3 +70,20 @@ void TeacherWindow::clickedBtnChooseGroup()
 {
     teacherWindowGroupsPage->chooseGroup();
 }
+
+void TeacherWindow::onTabChanged(int index)
+{
+    if(index == 1)
+        teacherWindowJournalPage->loadData();
+}
+
+void TeacherWindow::clickedBtnChooseSubject()
+{
+    teacherWindowJournalPage->chooseSubject();
+}
+
+void TeacherWindow::clickedBtnChooseGroupOnJournalPage()
+{
+    teacherWindowJournalPage->chooseGroup();
+}
+

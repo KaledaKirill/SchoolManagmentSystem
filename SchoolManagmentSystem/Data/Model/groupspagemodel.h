@@ -15,8 +15,6 @@ class GroupsPageModel
 public:
     GroupsPageModel();
 
-    void updateModelData();
-
     void chooseGroup(const QString& groupName);
     bool addGroup(const QString& groupName);
     bool deleteGroup(const QString& groupName);
