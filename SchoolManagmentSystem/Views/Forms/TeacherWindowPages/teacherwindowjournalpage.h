@@ -16,6 +16,8 @@ public:
     void loadData();
     void chooseGroup();
     void chooseSubject();
+    void chooseQuarter();
+    void addDate();
 
 private:
     Ui::TeacherWindow* ui;

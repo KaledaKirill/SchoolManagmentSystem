@@ -13,6 +13,7 @@ public:
 
     bool addGrade(const Grade& grade);
     bool deleteGrade(const Grade& grade);
+    bool updateGrade(const Grade& oldGrade, const Grade& newGrade);
 
     QString getStudentName() const;
     void setStudentName(const QString& studentName);

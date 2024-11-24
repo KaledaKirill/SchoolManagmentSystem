@@ -10,7 +10,6 @@ GroupsPageModel::GroupsPageModel()
     studentsDAO(new StudentsDAO)
 {
     loadData();
-    groupsListModel.setStringList(groupNamesList);
 }
 
 void GroupsPageModel::chooseGroup(const QString& groupName)
@@ -151,12 +150,14 @@ bool GroupsPageModel::deleteStudent(const QString &studentName)
 void GroupsPageModel::loadData()
 {
     groupNamesList = groupsDAO->getAllGroupNames();
-    loadGroupData(groupNamesList[0]);
+    groupsListModel.setStringList(groupNamesList);
+    if(!groupNamesList.isEmpty())
+        loadGroupData(groupNamesList[0]);
 }
 
 void GroupsPageModel::loadGroupData(const QString &groupName)
 {
-    currentGroup = groupsDAO->getGroup(groupName);
+    currentGroup = groupsDAO->getGroup(groupName); //add handler
     subjectsListModel.setStringList(currentGroup.getSubjectsList());
     studentsListModel.setStringList(currentGroup.getStudentNamesList());
 }

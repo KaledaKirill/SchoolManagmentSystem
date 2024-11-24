@@ -7,6 +7,7 @@
 #include "../../Utils/logger.h"
 #include "../Entity/group.h"
 #include "journalmodel.h"
+#include "datesservice.h"
 
 #include <QStringListModel>
 
@@ -19,10 +20,12 @@ public:
     void loadGroupData(const QString& groupName);
     void chooseGroup(const QString& groupName);
     void chooseSubject(const QString& subjectName);
+    void chooseQuarter(int quarter);
+    bool addDate(const QDate& date);
 
     QStringListModel* getGroupsListModel();
     QStringListModel* getSubjectsListModel();
-    JournalModel* getJournaltModel();
+    JournalModel* getJournalModel();
 
 private:
     JournalModel journalModel;
@@ -37,6 +40,8 @@ private:
     QScopedPointer<IGroupsDAO> groupsDAO;
     QScopedPointer<ISubjectsDAO> subjectsDAO;
     QScopedPointer<IStudentsDAO> studentsDAO;
+
+    QScopedPointer<DatesService> datesService;
 
     Logger log;
 };

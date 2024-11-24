@@ -1,25 +1,24 @@
 #include "journalmodel.h"
 #include "../Entity/Grade.h"
+#include "../DAO/gradesdao.h"
+
+#include <QDebug>
 
 JournalModel::JournalModel(QObject* parent)
-    : QAbstractTableModel(parent), currentQuarter(1)
-{
-}
+    : QAbstractTableModel(parent),
+    gradesDAO(new GradesDAO) {}
 
-int JournalModel::rowCount(const QModelIndex& parent) const
-{
+int JournalModel::rowCount(const QModelIndex& parent) const {
     Q_UNUSED(parent);
     return students.size();
 }
 
-int JournalModel::columnCount(const QModelIndex& parent) const
-{
+int JournalModel::columnCount(const QModelIndex& parent) const {
     Q_UNUSED(parent);
     return dates.size();
 }
 
-QVariant JournalModel::data(const QModelIndex& index, int role) const
-{
+QVariant JournalModel::data(const QModelIndex& index, int role) const {
     if (!index.isValid() || index.row() >= students.size() || index.column() >= dates.size())
         return QVariant();
 
@@ -37,8 +36,26 @@ QVariant JournalModel::data(const QModelIndex& index, int role) const
     return QVariant();
 }
 
-bool JournalModel::setData(const QModelIndex& index, const QVariant& value, int role)
+QVariant JournalModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
+    if (role != Qt::DisplayRole) {
+        return QVariant();
+    }
+
+    if (orientation == Qt::Horizontal) {
+        if (section >= 0 && section < dates.size()) {
+            return dates.at(section).toString("dd.MM.yyyy");
+        }
+    } else if (orientation == Qt::Vertical) {
+        if (section >= 0 && section < students.size()) {
+            return students.at(section).getStudentName();
+        }
+    }
+
+    return QVariant();
+}
+
+bool JournalModel::setData(const QModelIndex& index, const QVariant& value, int role) {
     if (!index.isValid() || role != Qt::EditRole)
         return false;
 
@@ -51,11 +68,19 @@ bool JournalModel::setData(const QModelIndex& index, const QVariant& value, int 
     Student& student = students[row];
     QDate date = dates[col];
 
-    // Обновляем или добавляем оценку
     bool gradeUpdated = false;
     for (Grade& grade : student.getGradesList()) {
         if (grade.getDate() == date && grade.getSubject() == currentSubject) {
-            grade.setGradeValue(value.toInt());
+            if (value.toString().isEmpty()) {
+                student.deleteGrade(grade);
+                gradesDAO->deleteGrade(grade);
+                gradeUpdated = true;
+                break;
+            }
+
+            Grade newGrade(value.toInt(), date, currentSubject, student.getStudentName());
+            gradesDAO->updateGrade(grade, newGrade);
+            student.updateGrade(grade, newGrade);
             gradeUpdated = true;
             break;
         }
@@ -64,6 +89,7 @@ bool JournalModel::setData(const QModelIndex& index, const QVariant& value, int 
     if (!gradeUpdated) {
         Grade newGrade(value.toInt(), date, currentSubject, student.getStudentName());
         student.addGrade(newGrade);
+        gradesDAO->addGrade(newGrade);
     }
 
     emit dataChanged(index, index);
@@ -78,45 +104,27 @@ Qt::ItemFlags JournalModel::flags(const QModelIndex& index) const
     return Qt::ItemIsSelectable | Qt::ItemIsEnabled | Qt::ItemIsEditable;
 }
 
-void JournalModel::setSubject(const QString& subjectName)
+void JournalModel::setStudentList(const QList<Student>& externalStudents)
 {
+    students = externalStudents;
+    emit layoutChanged();
+}
+
+void JournalModel::setSubject(const QString& subjectName) {
     currentSubject = subjectName;
     emit layoutChanged();
 }
 
-void JournalModel::setGroup(const QString& groupName)
+void JournalModel::setDates(const QList<QDate> &dates)
 {
-    currentGroup = groupName;
+    this->dates = dates;
     emit layoutChanged();
 }
 
-void JournalModel::setQuarter(int quarter)
-{
-    currentQuarter = quarter;
-    // Здесь можно фильтровать даты по текущей четверти
-    emit layoutChanged();
-}
+void JournalModel::addDate(const QDate& date) {
+    if (!date.isValid())
+        return;
 
-void JournalModel::loadGrades(const QList<Student>& newStudents)
-{
-    students = newStudents;
-    emit layoutChanged();
-}
-
-void JournalModel::addGrade(const QString& studentName, const QDate& date, int gradeValue)
-{
-    for (Student& student : students) {
-        if (student.getStudentName() == studentName) {
-            Grade newGrade(gradeValue, date, currentSubject, studentName);
-            student.addGrade(newGrade);
-            emit layoutChanged();
-            return;
-        }
-    }
-}
-
-void JournalModel::addDate(const QDate& date)
-{
     if (!dates.contains(date)) {
         dates.append(date);
         emit layoutChanged();

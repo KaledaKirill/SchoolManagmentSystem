@@ -15,6 +15,7 @@ SOURCES += \
     Data/Model/groupspagemodel.cpp \
     Data/Model/journalpagemodel.cpp \
     Data/Model/journalmodel.cpp \
+    Data/Model/datesservice.cpp \
     main.cpp \
     Data/Entity/student.cpp \
     Data/DAO/studentsdao.cpp \
@@ -44,7 +45,8 @@ HEADERS += \
     Views/Forms/TeacherWindowPages/teacherwindowgroupspage.h \
     Data/Model/groupspagemodel.h \
     Data/Model/journalpagemodel.h \
-    Data/Model/journalmodel.h
+    Data/Model/journalmodel.h \
+    Data/Model/datesservice.h
 
 FORMS += \
     Views/Forms/teacherwindow.ui

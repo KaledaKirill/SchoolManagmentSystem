@@ -20,6 +20,16 @@ bool Student::deleteGrade(const Grade& grade)
     return gradesList.removeOne(grade);
 }
 
+bool Student::updateGrade(const Grade& oldGrade, const Grade& newGrade)
+{
+    int index = gradesList.indexOf(oldGrade);
+    if (index != -1) {
+        gradesList[index] = newGrade;
+        return true;
+    }
+    return false;
+}
+
 QString Student::getStudentName() const
 {
     return name;
