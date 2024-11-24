@@ -4,6 +4,7 @@ CONFIG += c++17
 
 SOURCES += \
     Data/DAO/gradesdao.cpp \
+    Data/DAO/scheduledao.cpp \
     Utils/database.cpp \
     Utils/logger.cpp \
     Data/Entity/grade.cpp \
@@ -23,11 +24,12 @@ SOURCES += \
     Views/Forms/TeacherWindowPages/teacherwindowgroupspage.cpp
 
 HEADERS += \
-    Data/DAO/IGradesDAO.h \
-    Data/DAO/IGroupsDAO.h \
-    Data/DAO/IStudentsDAO.h \
-    Data/DAO/ISubjectsDAO.h \
     Data/DAO/gradesdao.h \
+    Data/DAO/igradesdao.h \
+    Data/DAO/igroupsdao.h \
+    Data/DAO/istudentsdao.h \
+    Data/DAO/isubjectsdao.h \
+    Data/DAO/scheduledao.h \
     Utils/database.h \
     Utils/logger.h \
     Exceptions/notworkingrequest.h \
@@ -46,7 +48,8 @@ HEADERS += \
     Data/Model/groupspagemodel.h \
     Data/Model/journalpagemodel.h \
     Data/Model/journalmodel.h \
-    Data/Model/datesservice.h
+    Data/Model/datesservice.h \
+    Data/DAO/ischeduledao.h
 
 FORMS += \
     Views/Forms/teacherwindow.ui

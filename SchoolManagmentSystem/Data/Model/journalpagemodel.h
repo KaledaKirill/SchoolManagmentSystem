@@ -1,9 +1,9 @@
 #ifndef JOURNALPAGEMODEL_H
 #define JOURNALPAGEMODEL_H
 
-#include "../DAO/IGroupsDAO.h"
-#include "../DAO/ISubjectsDAO.h"
-#include "../DAO/IStudentsDAO.h"
+#include "../DAO/igroupsdao.h"
+#include "../DAO/isubjectsdao.h"
+#include "../DAO/istudentsdao.h"
 #include "../../Utils/logger.h"
 #include "../Entity/group.h"
 #include "journalmodel.h"

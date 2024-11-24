@@ -24,6 +24,7 @@ void DataBase::createTables()
 {
     QSqlQuery query;
 
+    // Создание таблицы GRADES
     QString createGradesTable =
         "CREATE TABLE IF NOT EXISTS GRADES ("
         "id INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -40,6 +41,7 @@ void DataBase::createTables()
         _log.info(__FILE__, "GRADES table created successfully.");
     }
 
+    // Создание таблицы SUBJECTS
     QString createSubjectsTable =
         "CREATE TABLE IF NOT EXISTS SUBJECTS ("
         "id INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -54,6 +56,7 @@ void DataBase::createTables()
         _log.info(__FILE__, "SUBJECTS table created successfully.");
     }
 
+    // Создание таблицы STUDENTS
     QString createStudentsTable =
         "CREATE TABLE IF NOT EXISTS STUDENTS ("
         "id INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -68,6 +71,7 @@ void DataBase::createTables()
         _log.info(__FILE__, "STUDENTS table created successfully.");
     }
 
+    // Создание таблицы GROUPS
     QString createGroupsTable =
         "CREATE TABLE IF NOT EXISTS GROUPS ("
         "id INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -79,5 +83,22 @@ void DataBase::createTables()
         exit(EXIT_FAILURE);
     } else {
         _log.info(__FILE__, "GROUPS table created successfully.");
+    }
+
+    // Создание таблицы SCHEDULE
+    QString createScheduleTable =
+        "CREATE TABLE IF NOT EXISTS SCHEDULE ("
+        "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+        "name TEXT NOT NULL, "
+        "number INTEGER, "
+        "group_id INTEGER, "
+        "day_of_week INTEGER"
+        ");";
+
+    if (!query.exec(createScheduleTable)) {
+        _log.error(__FILE__, "Error creating SCHEDULE table: " + query.lastError().text());
+        exit(EXIT_FAILURE);
+    } else {
+        _log.info(__FILE__, "SCHEDULE table created successfully.");
     }
 }

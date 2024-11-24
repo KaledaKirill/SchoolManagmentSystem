@@ -1,9 +1,9 @@
 #ifndef GROUPSPAGEMODEL_H
 #define GROUPSPAGEMODEL_H
 
-#include "../DAO/IGroupsDAO.h"
-#include "../DAO/ISubjectsDAO.h"
-#include "../DAO/IStudentsDAO.h"
+#include "../DAO/igroupsdao.h"
+#include "../DAO/isubjectsdao.h"
+#include "../DAO/istudentsdao.h"
 #include "../Entity/group.h"
 #include "../../Utils/logger.h"
 

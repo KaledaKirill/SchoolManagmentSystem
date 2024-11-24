@@ -17,7 +17,7 @@ bool Student::addGrade(const Grade& grade)
 
 bool Student::deleteGrade(const Grade& grade)
 {
-    return gradesList.removeOne(grade);
+    return gradesList.removeAll(grade);
 }
 
 bool Student::updateGrade(const Grade& oldGrade, const Grade& newGrade)

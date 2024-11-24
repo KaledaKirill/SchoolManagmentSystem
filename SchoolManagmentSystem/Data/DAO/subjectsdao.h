@@ -1,7 +1,7 @@
 #ifndef SUBJECTSDAO_H
 #define SUBJECTSDAO_H
 
-#include "ISubjectsDAO.h"
+#include "isubjectsdao.h"
 
 class SubjectsDAO : public ISubjectsDAO
 {

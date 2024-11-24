@@ -68,11 +68,13 @@ bool JournalModel::setData(const QModelIndex& index, const QVariant& value, int 
     Student& student = students[row];
     QDate date = dates[col];
 
+    QVariant currentValue = data(index, Qt::DisplayRole);
     bool gradeUpdated = false;
     for (Grade& grade : student.getGradesList()) {
         if (grade.getDate() == date && grade.getSubject() == currentSubject) {
-            if (value.toString().isEmpty()) {
-                student.deleteGrade(grade);
+            if (value == currentValue) {
+                qDebug() << value.toString();
+                qDebug() << student.deleteGrade(grade);
                 gradesDAO->deleteGrade(grade);
                 gradeUpdated = true;
                 break;

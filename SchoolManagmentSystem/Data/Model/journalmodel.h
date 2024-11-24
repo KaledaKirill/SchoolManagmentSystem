@@ -2,7 +2,7 @@
 #define JOURNALMODEL_H
 
 #include "../Entity/Student.h"
-#include "../DAO/IGradesDAO.h"
+#include "../DAO/igradesdao.h"
 
 #include <QAbstractTableModel>
 #include <QDate>

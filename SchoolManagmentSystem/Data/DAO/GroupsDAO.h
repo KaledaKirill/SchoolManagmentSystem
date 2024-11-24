@@ -1,7 +1,7 @@
 #ifndef GROUPSDAO_H
 #define GROUPSDAO_H
 
-#include "IGroupsDAO.h"
+#include "igroupsdao.h"
 
 class GroupsDAO : public IGroupsDAO
 {

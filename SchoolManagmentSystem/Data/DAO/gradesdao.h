@@ -1,7 +1,7 @@
 #ifndef GRADESDAO_H
 #define GRADESDAO_H
 
-#include "IGradesDAO.h"
+#include "igradesdao.h"
 
 class GradesDAO : public IGradesDAO
 {

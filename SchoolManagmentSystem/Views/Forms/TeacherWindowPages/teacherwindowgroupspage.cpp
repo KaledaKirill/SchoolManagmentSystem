@@ -11,6 +11,9 @@ TeacherWindowGroupsPage::TeacherWindowGroupsPage(Ui::TeacherWindow* teacherWindo
     ui->groupsCbx->setModel(groupsPageModel->getGroupsListModel());
     ui->subjectsListView->setModel(groupsPageModel->getSubjectsListModel());
     ui->studentsListView->setModel(groupsPageModel->getStudentsListModel());
+
+    ui->subjectsListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    ui->studentsListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
 }
 
 void TeacherWindowGroupsPage::chooseGroup()
