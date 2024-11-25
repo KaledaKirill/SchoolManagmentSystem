@@ -5,6 +5,9 @@ CONFIG += c++17
 SOURCES += \
     Data/DAO/gradesdao.cpp \
     Data/DAO/scheduledao.cpp \
+    Data/Model/gradesservice.cpp \
+    Data/Model/schedulemodel.cpp \
+    Data/Model/schedulepagemodel.cpp \
     Utils/database.cpp \
     Utils/logger.cpp \
     Data/Entity/grade.cpp \
@@ -30,6 +33,9 @@ HEADERS += \
     Data/DAO/istudentsdao.h \
     Data/DAO/isubjectsdao.h \
     Data/DAO/scheduledao.h \
+    Data/Model/gradesservice.h \
+    Data/Model/schedulemodel.h \
+    Data/Model/schedulepagemodel.h \
     Utils/database.h \
     Utils/logger.h \
     Exceptions/notworkingrequest.h \

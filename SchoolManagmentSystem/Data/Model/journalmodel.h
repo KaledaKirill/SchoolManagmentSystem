@@ -37,6 +37,7 @@ private:
     QList<Student> students; // Обычный список студентов
 
     QScopedPointer<IGradesDAO> gradesDAO;
+
 };
 
 #endif // JOURNALMODEL_H

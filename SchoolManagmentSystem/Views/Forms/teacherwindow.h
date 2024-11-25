@@ -35,11 +35,14 @@ private slots:
     void clickedBtnChooseGroup();
 
     void clickedJournalTab(int index);
+    void clickedScheduleTab(int index);
 
     void clickedBtnChooseGroupOnJournalPage();
     void clickedBtnChooseSubject();
     void clickedBtnChooseQuarter();
     void clickedBtnAddDate();
+
+    void clickedBtnChooseGroupOnSchedulePage();
 
 private:
     Ui::TeacherWindow* ui;

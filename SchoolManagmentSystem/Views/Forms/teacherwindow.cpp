@@ -26,11 +26,14 @@ TeacherWindow::TeacherWindow(QWidget *parent)
     connect(ui->chooseGroupBtn, SIGNAL(clicked(bool)), this, SLOT(clickedBtnChooseGroup()));
 
     connect(ui->mainTabWidget, SIGNAL(currentChanged(int)), this, SLOT(clickedJournalTab(int)));
+    connect(ui->mainTabWidget, SIGNAL(currentChanged(int)), this, SLOT(clickedScheduleTab(int)));
 
     connect(ui->chooseSubjectBtn, SIGNAL(clicked(bool)), this, SLOT(clickedBtnChooseSubject()));
     connect(ui->chooseGroupBtnOnJournalPage, SIGNAL(clicked(bool)), this, SLOT(clickedBtnChooseGroupOnJournalPage()));
     connect(ui->chooseQuarterBtn, SIGNAL(clicked(bool)), this, SLOT(clickedBtnChooseQuarter()));
     connect(ui->addDateBtn, SIGNAL(clicked(bool)), this, SLOT(clickedBtnAddDate()));
+
+    connect(ui->chooseGroupBtnOnSchedulePage, SIGNAL(clicked(bool)), this, SLOT(clickedBtnChooseGroupOnSchedulePage()));
 }
 
 TeacherWindow::~TeacherWindow()
@@ -79,6 +82,12 @@ void TeacherWindow::clickedJournalTab(int index)
         teacherWindowJournalPage->loadData();
 }
 
+void TeacherWindow::clickedScheduleTab(int index)
+{
+    if(index == 2)
+        teacherWindowSchedulePage->loadData();
+}
+
 void TeacherWindow::clickedBtnChooseSubject()
 {
     teacherWindowJournalPage->chooseSubject();
@@ -92,6 +101,11 @@ void TeacherWindow::clickedBtnChooseQuarter()
 void TeacherWindow::clickedBtnAddDate()
 {
     teacherWindowJournalPage->addDate();
+}
+
+void TeacherWindow::clickedBtnChooseGroupOnSchedulePage()
+{
+    teacherWindowSchedulePage->chooseGroup();
 }
 
 void TeacherWindow::clickedBtnChooseGroupOnJournalPage()
