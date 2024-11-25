@@ -9,6 +9,7 @@
 class Student
 {
 public:
+    Student();
     Student(const QString& name, const QString& group, const QList<Grade>& gradesList = QList<Grade>());
 
     bool addGrade(const Grade& grade);

@@ -16,6 +16,8 @@ SOURCES += \
     Data/DAO/groupsdao.cpp \
     Views/Forms/TeacherWindowPages/teacherwindowjournalpage.cpp \
     Views/Forms/TeacherWindowPages/teacherwindowschedulepage.cpp \
+    Views/Forms/loginwindow.cpp \
+    Views/Forms/studentwindow.cpp \
     Views/Forms/teacherwindow.cpp \
     Data/Model/groupspagemodel.cpp \
     Data/Model/journalpagemodel.cpp \
@@ -51,6 +53,8 @@ HEADERS += \
     Exceptions/studentnotfound.h \
     Views/Forms/TeacherWindowPages/teacherwindowjournalpage.h \
     Views/Forms/TeacherWindowPages/teacherwindowschedulepage.h \
+    Views/Forms/loginwindow.h \
+    Views/Forms/studentwindow.h \
     Views/Forms/teacherwindow.h \
     Views/Forms/TeacherWindowPages/teacherwindowgroupspage.h \
     Data/Model/groupspagemodel.h \
@@ -60,6 +64,8 @@ HEADERS += \
     Data/DAO/ischeduledao.h
 
 FORMS += \
+    Views/Forms/loginwindow.ui \
+    Views/Forms/studentwindow.ui \
     Views/Forms/teacherwindow.ui
 
 # Default rules for deployment.

@@ -1,5 +1,9 @@
 #include "student.h"
 
+Student::Student()
+    : name(""),
+    group(),
+    gradesList() {}
 
 Student::Student(const QString& name, const QString& group, const QList<Grade>& gradesList)
     : name(name),

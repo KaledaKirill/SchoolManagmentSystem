@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>LoginWindow</class>
+ <widget class="QWidget" name="LoginWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>407</width>
+    <height>316</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+    background-color: #f0f0f0;
+}
+
+QPushButton {
+    background-color: #4682b4;
+    border: 1px solid #191970;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    font: bold;
+    font-size: 14px;
+}
+
+QPushButton:hover {
+    background-color: #191970;
+}
+
+QLabel {
+    color: #000000;
+    font: bold;
+    font-size: 14px;
+}
+
+QLineEdit {
+    background-color: #ffffff;
+    border: 1px solid #4682b4;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+QComboBox {
+    background-color: #ffffff;
+    border: 1px solid #4682b4;
+    border-radius: 5px;
+    padding: 2px;
+    color: #000000;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #ffffff;
+    border: 1px solid #4682b4;
+    selection-background-color: #4682b4;
+    selection-color: white;
+}
+
+QComboBox::drop-down {
+    border-left: 1px solid #4682b4;
+    width: 20px;
+}
+
+QComboBox::down-arrow {
+    image: url(:resources\\images\\triangle.png); 
+    width: 12px; 
+    height: 12px; 
+    margin-top: 4px; 
+}
+
+QTabBar::tab {
+    background: #1f5e8d; 
+    border: 1px solid #191970;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+QTabBar::tab:selected {
+    background: #191970;
+}
+
+QTableView {
+    gridline-color: #4682b4;
+    selection-background-color: #f0f0f0;
+    selection-color: black;
+    background-color: #ffffff; 
+}
+
+QListView {
+    font-size: 14px; 
+}
+
+QHeaderView {
+    background-color: #ffffff;
+}
+
+QHeaderView::section {
+    background-color: #4682b4;
+    color: white;
+    padding: 4px;
+    border: 1px solid #191970;
+}
+
+QLineEdit { 
+	font-size: 14px; 
+}
+
+QComboBox { 
+	font-size: 14px; 
+	padding: 5px; 
+} 
+
+QComboBox QAbstractItemView { 
+	font-size: 14px;  
+}
+</string>
+  </property>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>40</y>
+     <width>301</width>
+     <height>252</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QRadioButton" name="TeacherRadioButton">
+      <property name="text">
+       <string>учитель</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QRadioButton" name="studentRadioButton">
+      <property name="text">
+       <string>ученик</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QFormLayout" name="formLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="nameLabel">
+        <property name="text">
+         <string>ФИО</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="nameLineEdit"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="classLabel">
+        <property name="text">
+         <string>класс</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="classLineEdit"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="passwordLabel">
+        <property name="text">
+         <string>пароль</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="passwordLineEdit"/>
+      </item>
+      <item row="3" column="1">
+       <widget class="QPushButton" name="loginBtn">
+        <property name="text">
+         <string>войти</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QCheckBox" name="showPasswordCbx">
+        <property name="text">
+         <string>показать пароль</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
