@@ -7,7 +7,8 @@
 #include "../../Utils/logger.h"
 #include "../Entity/group.h"
 #include "journalmodel.h"
-#include "datesservice.h"
+#include "resjournalmodel.h"
+#include "DatesService.h"
 
 #include <QStringListModel>
 
@@ -26,11 +27,13 @@ public:
     QStringListModel* getGroupsListModel();
     QStringListModel* getSubjectsListModel();
     JournalModel* getJournalModel();
+    ResJournalModel* getResJournalModel();
 
 private:
     JournalModel journalModel;
     QStringListModel groupsListModel;
     QStringListModel subjectsListModel;
+    ResJournalModel resJournalModel;
 
     QString currentSubject;
     QStringList groupNamesList;

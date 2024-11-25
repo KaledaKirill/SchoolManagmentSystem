@@ -6,6 +6,7 @@ SOURCES += \
     Data/DAO/gradesdao.cpp \
     Data/DAO/scheduledao.cpp \
     Data/Model/gradesservice.cpp \
+    Data/Model/resjournalmodel.cpp \
     Data/Model/schedulemodel.cpp \
     Data/Model/schedulepagemodel.cpp \
     Utils/database.cpp \
@@ -34,6 +35,7 @@ HEADERS += \
     Data/DAO/isubjectsdao.h \
     Data/DAO/scheduledao.h \
     Data/Model/gradesservice.h \
+    Data/Model/resjournalmodel.h \
     Data/Model/schedulemodel.h \
     Data/Model/schedulepagemodel.h \
     Utils/database.h \

@@ -31,6 +31,9 @@ void JournalPageModel::chooseSubject(const QString &subjectName)
     journalModel.setSubject(subjectName);
     journalModel.setDates(QList<QDate>());
     currentGroup = groupsDAO->getGroup(currentGroup.getName());
+
+    resJournalModel.setStudentList(currentGroup.getStudentsList());
+    resJournalModel.setSubject(subjectName);
 }
 
 void JournalPageModel::chooseQuarter(int quarter)
@@ -79,4 +82,9 @@ QStringListModel *JournalPageModel::getSubjectsListModel()
 JournalModel *JournalPageModel::getJournalModel()
 {
     return &journalModel;
+}
+
+ResJournalModel *JournalPageModel::getResJournalModel()
+{
+    return  &resJournalModel;
 }

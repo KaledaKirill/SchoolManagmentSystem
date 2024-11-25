@@ -11,6 +11,7 @@ TeacherWindowJournalPage::TeacherWindowJournalPage(Ui::TeacherWindow* teacherWin
     ui->groupsCbx_2->setModel(journalPageModel->getGroupsListModel());
     ui->subjectsCbx->setModel(journalPageModel->getSubjectsListModel());
     ui->journalTableView->setModel(journalPageModel->getJournalModel());
+    ui->resJournalTableView->setModel(journalPageModel->getResJournalModel());
 }
 
 void TeacherWindowJournalPage::loadData()
