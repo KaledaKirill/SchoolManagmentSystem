@@ -2,10 +2,13 @@
 #include "ui_studentwindow.h"
 
 StudentWindow::StudentWindow(const Student& student, QWidget *parent)
-    : QWidget(parent)
-    , ui(new Ui::StudentWindow)
+    : QWidget(parent),
+    student(student),
+    ui(new Ui::StudentWindow)
 {
     ui->setupUi(this);
+
+    schedulePage = std::make_unique<StudentWindowSchedulePage>(ui, student);
 }
 
 StudentWindow::~StudentWindow()

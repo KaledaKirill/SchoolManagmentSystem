@@ -27,7 +27,8 @@ SOURCES += \
     Data/Entity/student.cpp \
     Data/DAO/studentsdao.cpp \
     Data/DAO/subjectsdao.cpp \
-    Views/Forms/TeacherWindowPages/teacherwindowgroupspage.cpp
+    Views/Forms/TeacherWindowPages/teacherwindowgroupspage.cpp \
+    Views/Forms/StudentWindowPages/studentwindowschedulepage.cpp
 
 HEADERS += \
     Data/DAO/gradesdao.h \
@@ -61,7 +62,8 @@ HEADERS += \
     Data/Model/journalpagemodel.h \
     Data/Model/journalmodel.h \
     Data/Model/datesservice.h \
-    Data/DAO/ischeduledao.h
+    Data/DAO/ischeduledao.h \
+    Views/Forms/StudentWindowPages/studentwindowschedulepage.h
 
 FORMS += \
     Views/Forms/loginwindow.ui \

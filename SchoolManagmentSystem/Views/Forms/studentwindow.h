@@ -2,7 +2,9 @@
 #define STUDENTWINDOW_H
 
 #include "../../Data/Entity/student.h"
+#include "../Forms/StudentWindowPages/studentwindowschedulepage.h"
 
+#include <memory>
 #include <QWidget>
 
 namespace Ui {
@@ -18,7 +20,10 @@ public:
     ~StudentWindow();
 
 private:
+    const Student student;
     Ui::StudentWindow *ui;
+
+    std::unique_ptr<StudentWindowSchedulePage> schedulePage;
 };
 
 #endif
