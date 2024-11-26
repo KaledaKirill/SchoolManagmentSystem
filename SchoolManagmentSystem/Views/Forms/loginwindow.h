@@ -35,7 +35,7 @@ private:
     void loginAsTeacher();
     bool isValidStudentForm();
     bool isValidTeacherForm();
-    void hideLineEdits();
+    void hideForm();
 
 };
 

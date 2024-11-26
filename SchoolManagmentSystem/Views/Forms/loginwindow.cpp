@@ -13,8 +13,9 @@ LoginWindow::LoginWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::Logi
     connect(ui->showPasswordCbx, SIGNAL(clicked(bool)), this, SLOT(clickedCbxShowPassword()));
     connect(ui->studentRadioButton, &QRadioButton::toggled, this, &LoginWindow::onRadioButtonStudentToggled);
     connect(ui->TeacherRadioButton, &QRadioButton::toggled, this, &LoginWindow::onRadioButtonTeacherToggled);
+    ui->passwordLineEdit->setEchoMode(QLineEdit::Password);
 
-    hideLineEdits();
+    hideForm();
 }
 
 void LoginWindow::clickedBtnLogin()
@@ -88,7 +89,7 @@ bool LoginWindow::isValidTeacherForm()
     return true;
 }
 
-void LoginWindow::hideLineEdits()
+void LoginWindow::hideForm()
 {
     ui->nameLabel->setVisible(false);
     ui->nameLineEdit->setVisible(false);
@@ -96,6 +97,7 @@ void LoginWindow::hideLineEdits()
     ui->classLineEdit->setVisible(false);
     ui->passwordLabel->setVisible(false);
     ui->passwordLineEdit->setVisible(false);
+    ui->showPasswordCbx->setVisible(false);
 }
 
 void LoginWindow::onRadioButtonStudentToggled(bool checked)
@@ -106,6 +108,7 @@ void LoginWindow::onRadioButtonStudentToggled(bool checked)
     ui->classLineEdit->setVisible(checked);
     ui->passwordLineEdit->setVisible(!checked);
     ui->passwordLabel->setVisible(!checked);
+     ui->showPasswordCbx->setVisible(!checked);
 }
 
 void LoginWindow::onRadioButtonTeacherToggled(bool checked)
@@ -116,6 +119,7 @@ void LoginWindow::onRadioButtonTeacherToggled(bool checked)
     ui->classLineEdit->setVisible(!checked);
     ui->passwordLineEdit->setVisible(checked);
     ui->passwordLabel->setVisible(checked);
+    ui->showPasswordCbx->setVisible(checked);
 }
 
 void LoginWindow::clickedCbxShowPassword() {
