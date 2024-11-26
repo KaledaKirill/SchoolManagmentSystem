@@ -9,6 +9,7 @@ StudentWindow::StudentWindow(const Student& student, QWidget *parent)
     ui->setupUi(this);
 
     schedulePage = std::make_unique<StudentWindowSchedulePage>(ui, student);
+    journalPage = std::make_unique<StudentWindowJournalPage>(ui, student);
 }
 
 StudentWindow::~StudentWindow()

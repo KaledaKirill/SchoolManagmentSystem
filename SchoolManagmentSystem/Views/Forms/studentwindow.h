@@ -3,6 +3,7 @@
 
 #include "../../Data/Entity/student.h"
 #include "../Forms/StudentWindowPages/studentwindowschedulepage.h"
+#include "../Forms/StudentWindowPages/studentwindowjournalpage.h"
 
 #include <memory>
 #include <QWidget>
@@ -24,6 +25,8 @@ private:
     Ui::StudentWindow *ui;
 
     std::unique_ptr<StudentWindowSchedulePage> schedulePage;
+    std::unique_ptr<StudentWindowJournalPage> journalPage;
+
 };
 
 #endif

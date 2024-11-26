@@ -36,8 +36,7 @@ void LoginWindow::loginAsStudent()
     const QString groupName = ui->classLineEdit->text();
     try
     {
-        studentsDAO->getStudent(studentName, groupName);
-        Student student(studentName, groupName);
+        Student student = studentsDAO->getStudent(studentName, groupName);
         StudentWindow* studentWindow = new StudentWindow(student);
         studentWindow->show();
         this->close();

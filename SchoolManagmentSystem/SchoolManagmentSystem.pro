@@ -9,11 +9,14 @@ SOURCES += \
     Data/Model/resjournalmodel.cpp \
     Data/Model/schedulemodel.cpp \
     Data/Model/schedulepagemodel.cpp \
+    Data/Model/studentjournalmodel.cpp \
+    Data/Model/studentresjournalmodel.cpp \
     Utils/database.cpp \
     Utils/logger.cpp \
     Data/Entity/grade.cpp \
     Data/Entity/group.cpp \
     Data/DAO/groupsdao.cpp \
+    Views/Forms/StudentWindowPages/studentwindowjournalpage.cpp \
     Views/Forms/TeacherWindowPages/teacherwindowjournalpage.cpp \
     Views/Forms/TeacherWindowPages/teacherwindowschedulepage.cpp \
     Views/Forms/loginwindow.cpp \
@@ -41,6 +44,8 @@ HEADERS += \
     Data/Model/resjournalmodel.h \
     Data/Model/schedulemodel.h \
     Data/Model/schedulepagemodel.h \
+    Data/Model/studentjournalmodel.h \
+    Data/Model/studentresjournalmodel.h \
     Utils/database.h \
     Utils/logger.h \
     Exceptions/notworkingrequest.h \
@@ -52,6 +57,7 @@ HEADERS += \
     Data/DAO/subjectsdao.h \
     Exceptions/groupnotfound.h \
     Exceptions/studentnotfound.h \
+    Views/Forms/StudentWindowPages/studentwindowjournalpage.h \
     Views/Forms/TeacherWindowPages/teacherwindowjournalpage.h \
     Views/Forms/TeacherWindowPages/teacherwindowschedulepage.h \
     Views/Forms/loginwindow.h \
