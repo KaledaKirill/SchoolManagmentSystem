@@ -9,6 +9,7 @@
 
 #include <QStringListModel>
 #include <QScopedPointer>
+#include <QUndoStack>
 
 class GroupsPageModel
 {
@@ -29,6 +30,8 @@ public:
     QStringListModel* getSubjectsListModel();
     QStringListModel* getStudentsListModel();
 
+    QUndoStack* getUndoStack();
+
 private:
     QStringListModel groupsListModel;
     QStringListModel subjectsListModel;
@@ -43,6 +46,7 @@ private:
 
     Logger log;
     Validator validator;
+    QUndoStack undoStack;
 
     void loadData();
     void loadGroupData(const QString& groupName);

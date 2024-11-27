@@ -88,7 +88,7 @@ bool GroupsPageModel::deleteSubject(const QString& subjectName)
     {
         if(currentGroup.deleteSubject(subjectName))
         {
-            subjectsDAO->addSubject(subjectName, currentGroup.getName());
+            subjectsDAO->deleteSubject(subjectName, currentGroup.getName());
             updateSubjectsListModelFromList();
             log.debug(__FILE__, "Subject [" + subjectName + "] was deleted.");
             return true;
@@ -157,7 +157,7 @@ void GroupsPageModel::loadData()
 
 void GroupsPageModel::loadGroupData(const QString &groupName)
 {
-    currentGroup = groupsDAO->getGroup(groupName); //add handler
+    currentGroup = groupsDAO->getGroup(groupName);
     subjectsListModel.setStringList(currentGroup.getSubjectsList());
     studentsListModel.setStringList(currentGroup.getStudentNamesList());
 }
@@ -190,4 +190,9 @@ QStringListModel *GroupsPageModel::getSubjectsListModel()
 QStringListModel *GroupsPageModel::getStudentsListModel()
 {
     return &studentsListModel;
+}
+
+QUndoStack *GroupsPageModel::getUndoStack()
+{
+    return &undoStack;
 }

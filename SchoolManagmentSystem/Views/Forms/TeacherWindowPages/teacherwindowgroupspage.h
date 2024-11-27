@@ -24,6 +24,9 @@ public:
     void addStudent();
     void deleteStudent();
 
+    void undoLastAction();
+    void redoLastAction();
+
 private:
     QScopedPointer<GroupsPageModel> groupsPageModel;
     Ui::TeacherWindow* ui;

@@ -44,11 +44,16 @@ private slots:
 
     void clickedBtnChooseGroupOnSchedulePage();
 
+    void clickedBtnUndo();
+    void clickedBtnRedo();
+
 private:
     Ui::TeacherWindow* ui;
 
     std::unique_ptr<TeacherWindowGroupsPage> teacherWindowGroupsPage;
     std::unique_ptr<TeacherWindowJournalPage> teacherWindowJournalPage;
     std::unique_ptr<TeacherWindowSchedulePage> teacherWindowSchedulePage;
+
+    void setupShortcuts();
 };
 #endif

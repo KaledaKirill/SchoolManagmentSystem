@@ -6,12 +6,18 @@ SOURCES += \
     Data/DAO/gradesdao.cpp \
     Data/DAO/scheduledao.cpp \
     Data/Entity/validator.cpp \
+    Data/UndoRedo/addgroupcommand.cpp \
     Data/Model/gradesservice.cpp \
     Data/Model/resjournalmodel.cpp \
     Data/Model/schedulemodel.cpp \
     Data/Model/schedulepagemodel.cpp \
     Data/Model/studentjournalmodel.cpp \
     Data/Model/studentresjournalmodel.cpp \
+    Data/UndoRedo/addstudentcommand.cpp \
+    Data/UndoRedo/addsubjectcommand.cpp \
+    Data/UndoRedo/deletegroupcommand.cpp \
+    Data/UndoRedo/deletestudentcommand.cpp \
+    Data/UndoRedo/deletesubjectcommand.cpp \
     Utils/database.cpp \
     Utils/logger.cpp \
     Data/Entity/grade.cpp \
@@ -42,12 +48,18 @@ HEADERS += \
     Data/DAO/isubjectsdao.h \
     Data/DAO/scheduledao.h \
     Data/Entity/validator.h \
+    Data/UndoRedo/addgroupcommand.h \
     Data/Model/gradesservice.h \
     Data/Model/resjournalmodel.h \
     Data/Model/schedulemodel.h \
     Data/Model/schedulepagemodel.h \
     Data/Model/studentjournalmodel.h \
     Data/Model/studentresjournalmodel.h \
+    Data/UndoRedo/addstudentcommand.h \
+    Data/UndoRedo/addsubjectcommand.h \
+    Data/UndoRedo/deletegroupcommand.h \
+    Data/UndoRedo/deletestudentcommand.h \
+    Data/UndoRedo/deletesubjectcommand.h \
     Utils/database.h \
     Utils/logger.h \
     Exceptions/notworkingrequest.h \

@@ -2,6 +2,7 @@
 #include "ui_teacherwindow.h"
 
 #include <QInputDialog>
+#include <QShortcut>
 
 TeacherWindow::TeacherWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -13,6 +14,8 @@ TeacherWindow::TeacherWindow(QWidget *parent)
     teacherWindowGroupsPage = std::make_unique<TeacherWindowGroupsPage>(ui);
     teacherWindowJournalPage = std::make_unique<TeacherWindowJournalPage>(ui);
     teacherWindowSchedulePage = std::make_unique<TeacherWindowSchedulePage>(ui);
+
+    setupShortcuts();
 
     connect(ui->addGroupBtn, SIGNAL(clicked(bool)), this, SLOT(clickedBtnAddGroup()));
     connect(ui->deleteGroupBtn, SIGNAL(clicked(bool)), this, SLOT(clickedBtnDeleteGroup()));
@@ -108,8 +111,27 @@ void TeacherWindow::clickedBtnChooseGroupOnSchedulePage()
     teacherWindowSchedulePage->chooseGroup();
 }
 
+void TeacherWindow::clickedBtnUndo()
+{
+    teacherWindowGroupsPage->undoLastAction();
+}
+
+void TeacherWindow::clickedBtnRedo()
+{
+    teacherWindowGroupsPage->redoLastAction();
+}
+
 void TeacherWindow::clickedBtnChooseGroupOnJournalPage()
 {
     teacherWindowJournalPage->chooseGroup();
+}
+
+void TeacherWindow::setupShortcuts()
+{
+    QShortcut* undoShortcut = new QShortcut(QKeySequence::Undo, this);
+    connect(undoShortcut, &QShortcut::activated, this, &TeacherWindow::clickedBtnUndo);
+
+    QShortcut* redoShortcut = new QShortcut(QKeySequence::Redo, this);
+    connect(redoShortcut, &QShortcut::activated, this, &TeacherWindow::clickedBtnRedo);
 }
 
