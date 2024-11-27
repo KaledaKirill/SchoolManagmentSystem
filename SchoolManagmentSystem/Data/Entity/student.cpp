@@ -12,7 +12,7 @@ Student::Student(const QString& name, const QString& group, const QList<Grade>& 
 
 bool Student::addGrade(const Grade& grade)
 {
-    if (gradesList.contains(grade)) {
+    if (gradesList.contains(grade) || !validator.isGradeValueValid(grade.getGradeValue())) {
         return false;
     }
     gradesList.append(grade);

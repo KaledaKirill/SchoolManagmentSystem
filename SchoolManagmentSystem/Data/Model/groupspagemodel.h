@@ -42,6 +42,7 @@ private:
     QScopedPointer<IStudentsDAO> studentsDAO;
 
     Logger log;
+    Validator validator;
 
     void loadData();
     void loadGroupData(const QString& groupName);

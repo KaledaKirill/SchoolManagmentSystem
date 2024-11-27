@@ -1,7 +1,8 @@
 #ifndef STUDENT_H
 #define STUDENT_H
 
-#include "Grade.h"
+#include "grade.h"
+#include "validator.h"
 
 #include <QString>
 #include <QList>
@@ -32,6 +33,8 @@ private:
     QString name;
     QString group;
     QList<Grade> gradesList;
+
+    Validator validator;
 
 };
 

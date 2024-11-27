@@ -15,7 +15,7 @@ Group::Group(const QString& groupName, const QList<Student>& studentsList, const
 
 bool Group::addSubject(const QString& subject)
 {
-    if (!subjectsList.contains(subject)) {
+    if (!subjectsList.contains(subject) && validator.isSubjectValid(subject)) {
         subjectsList.append(subject);
         return true;
     }
@@ -29,7 +29,9 @@ bool Group::deleteSubject(const QString& subject)
 
 bool Group::addStudent(const Student& student)
 {
-    if (!studentNamesList.contains(student.getStudentName()))
+    const QString studentName = student.getStudentName();
+
+    if (!studentNamesList.contains(studentName) && validator.isStudentNameValid(studentName))
     {
         studentsList.append(student);
         studentNamesList.append(student.getStudentName());

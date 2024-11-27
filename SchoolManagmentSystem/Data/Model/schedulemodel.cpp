@@ -1,5 +1,7 @@
 #include "ScheduleModel.h"
 
+#include <qmessagebox.h>
+
 ScheduleModel::ScheduleModel(QObject* parent)
     : QAbstractTableModel(parent)
 {
@@ -68,6 +70,12 @@ bool ScheduleModel::setData(const QModelIndex& index, const QVariant& value, int
         int dayOfWeek = index.column();
         int lessonNumber = index.row() + 1;
         QString newSubject = value.toString();
+
+        if(!validator.isSubjectValid(newSubject))
+        {
+            QMessageBox::warning(0, "Неуспешная операция", "Такого предмета не существует.");
+            return false;
+        }
 
         if (schedule.contains({dayOfWeek + 1, lessonNumber})) {
             updateLesson(dayOfWeek + 1, lessonNumber, newSubject);

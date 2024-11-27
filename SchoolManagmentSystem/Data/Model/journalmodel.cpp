@@ -1,8 +1,9 @@
 #include "journalmodel.h"
-#include "../Entity/Grade.h"
+#include "../Entity/grade.h"
 #include "../DAO/gradesdao.h"
 
 #include <QDebug>
+#include <qmessagebox.h>
 
 JournalModel::JournalModel(QObject* parent)
     : QAbstractTableModel(parent),
@@ -59,6 +60,15 @@ bool JournalModel::setData(const QModelIndex& index, const QVariant& value, int 
     if (!index.isValid() || role != Qt::EditRole)
         return false;
 
+    bool isNumber;
+    int intValue = value.toInt(&isNumber);
+
+    if (!isNumber || !validator.isGradeValueValid(intValue))
+    {
+        QMessageBox::warning(0, "Неуспешная операция", "Такой отметки не существует или значение некорректно");
+        return false;
+    }
+
     int row = index.row();
     int col = index.column();
 
@@ -72,9 +82,8 @@ bool JournalModel::setData(const QModelIndex& index, const QVariant& value, int 
     bool gradeUpdated = false;
     for (Grade& grade : student.getGradesList()) {
         if (grade.getDate() == date && grade.getSubject() == currentSubject) {
-            if (value == currentValue) {
-                qDebug() << value.toString();
-                qDebug() << student.deleteGrade(grade);
+            if (value == currentValue)
+            {
                 gradesDAO->deleteGrade(grade);
                 gradeUpdated = true;
                 break;

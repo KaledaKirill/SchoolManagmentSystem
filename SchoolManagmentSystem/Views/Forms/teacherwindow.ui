@@ -137,7 +137,7 @@ QComboBox QAbstractItemView {
     <item>
      <widget class="QTabWidget" name="mainTabWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -689,13 +689,6 @@ QComboBox QAbstractItemView {
              </size>
             </property>
            </spacer>
-          </item>
-          <item>
-           <widget class="QPushButton" name="addLessonBtn">
-            <property name="text">
-             <string>добавить урок</string>
-            </property>
-           </widget>
           </item>
          </layout>
         </item>

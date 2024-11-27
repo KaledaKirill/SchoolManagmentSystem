@@ -2,6 +2,7 @@
 #define GROUP_H
 
 #include "student.h"
+#include "validator.h"
 
 #include <QString>
 #include <QList>
@@ -36,6 +37,8 @@ private:
     QList<Student> studentsList;
     QStringList studentNamesList;
     QStringList subjectsList;
+
+    Validator validator;
 
     void fillStudentNamesList();
 };

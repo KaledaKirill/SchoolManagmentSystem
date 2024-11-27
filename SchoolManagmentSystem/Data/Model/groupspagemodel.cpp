@@ -21,7 +21,7 @@ bool GroupsPageModel::addGroup(const QString &groupName)
 {
     try
     {
-        if(!groupNamesList.contains(groupName))
+        if(!groupNamesList.contains(groupName) && validator.isGroupNameValid(groupName))
         {
             groupsDAO->addGroup(groupName);
             groupNamesList.append(groupName);

@@ -5,6 +5,7 @@ CONFIG += c++17
 SOURCES += \
     Data/DAO/gradesdao.cpp \
     Data/DAO/scheduledao.cpp \
+    Data/Entity/validator.cpp \
     Data/Model/gradesservice.cpp \
     Data/Model/resjournalmodel.cpp \
     Data/Model/schedulemodel.cpp \
@@ -40,6 +41,7 @@ HEADERS += \
     Data/DAO/istudentsdao.h \
     Data/DAO/isubjectsdao.h \
     Data/DAO/scheduledao.h \
+    Data/Entity/validator.h \
     Data/Model/gradesservice.h \
     Data/Model/resjournalmodel.h \
     Data/Model/schedulemodel.h \

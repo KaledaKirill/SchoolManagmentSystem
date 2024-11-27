@@ -2,6 +2,7 @@
 #define SCHEDULEMODEL_H
 
 #include "../DAO/scheduledao.h"
+#include "../Entity/validator.h"
 
 #include <QAbstractTableModel>
 
@@ -28,6 +29,9 @@ private:
     ScheduleDAO scheduleDAO;
     QString group;
     QHash<QPair<int, int>, QString> schedule;
+
+    Validator validator;
+
 };
 
 #endif
