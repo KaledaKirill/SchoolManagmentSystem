@@ -16,7 +16,7 @@ QStringList GroupsDAO::getAllGroupNames()
     return groupNames;
 }
 
-Group GroupsDAO::getGroup(const QString& groupName) //divide into functions
+Group GroupsDAO::getGroup(const QString& groupName)
 {
     QSqlQuery query;
 
@@ -32,7 +32,7 @@ Group GroupsDAO::getGroup(const QString& groupName) //divide into functions
     QString name = query.value("name").toString();
 
     QList<Student> studentsList;
-    query.prepare("SELECT id, name FROM STUDENTS WHERE group_id = :groupId");
+    query.prepare("SELECT id, name FROM STUDENTS WHERE group_id = :groupId ORDER BY name ASC");
     query.bindValue(":groupId", groupId);
 
     if (query.exec()) {
@@ -71,7 +71,7 @@ Group GroupsDAO::getGroup(const QString& groupName) //divide into functions
     }
 
     QStringList subjectsList;
-    query.prepare("SELECT name FROM SUBJECTS WHERE group_id = :groupId");
+    query.prepare("SELECT name FROM SUBJECTS WHERE group_id = :groupId ORDER BY name ASC");
     query.bindValue(":groupId", groupId);
 
     if (query.exec()) {

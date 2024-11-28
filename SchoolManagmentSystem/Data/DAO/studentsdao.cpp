@@ -6,13 +6,13 @@
 #include <QtSql/QSqlError>
 #include <QVariant>
 #include <QDebug>
-#include "../Entity/Grade.h"
+#include "../Entity/grade.h"
 
 QList<Student> StudentsDAO::getAllStudentsForGroup(const QString& groupName)
 {
     QList<Student> students;
     QSqlQuery query;
-    query.prepare("SELECT id, name FROM STUDENTS WHERE group_id = (SELECT id FROM GROUPS WHERE name = :groupName)");
+    query.prepare("SELECT id, name FROM STUDENTS WHERE group_id = (SELECT id FROM GROUPS WHERE name = :groupName) ORDER BY name ASC");
     query.bindValue(":groupName", groupName);
 
     if (query.exec()) {
@@ -45,7 +45,7 @@ QList<Student> StudentsDAO::getAllStudentsForGroup(const QString& groupName)
             students.append(Student(studentName, groupName, gradesList));
         }
     } else {
-        QString exceptionMessage = "Error in getting a students for group[" + groupName + "]. Query: " + query.lastQuery();
+        QString exceptionMessage = "Error in getting students for group[" + groupName + "]. Query: " + query.lastQuery();
         throw NotWorkingRequest(QString(exceptionMessage));
     }
 
@@ -56,7 +56,7 @@ QStringList StudentsDAO::getAllStudentNamesForGroup(const QString& groupName)
 {
     QStringList studentNames;
     QSqlQuery query;
-    query.prepare("SELECT name FROM STUDENTS WHERE group_id = (SELECT id FROM GROUPS WHERE name = :groupName)");
+    query.prepare("SELECT name FROM STUDENTS WHERE group_id = (SELECT id FROM GROUPS WHERE name = :groupName) ORDER BY name ASC");
     query.bindValue(":groupName", groupName);
 
     if (query.exec()) {
@@ -64,7 +64,7 @@ QStringList StudentsDAO::getAllStudentNamesForGroup(const QString& groupName)
             studentNames << query.value("name").toString();
         }
     } else {
-        QString exceptionMessage = "Error in getting a students names for group[" + groupName + "]. Query: " + query.lastQuery();
+        QString exceptionMessage = "Error in getting student names for group[" + groupName + "]. Query: " + query.lastQuery();
         throw NotWorkingRequest(QString(exceptionMessage));
     }
 
