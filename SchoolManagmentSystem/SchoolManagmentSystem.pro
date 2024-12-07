@@ -41,6 +41,7 @@ SOURCES += \
     Views/Forms/StudentWindowPages/studentwindowschedulepage.cpp
 
 HEADERS += \
+    Collections/mylist.h \
     Data/DAO/gradesdao.h \
     Data/DAO/igradesdao.h \
     Data/DAO/igroupsdao.h \

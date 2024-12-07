@@ -36,6 +36,7 @@ private:
     bool isValidStudentForm();
     bool isValidTeacherForm();
     void hideForm();
+    void clearForm();
 
 };
 

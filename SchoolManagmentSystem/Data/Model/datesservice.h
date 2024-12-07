@@ -2,6 +2,7 @@
 #define DATESSERVICE_H
 
 #include "../Entity/group.h"
+#include "../../Collections/mylist.h"
 
 #include <QList>
 #include <QDate>
@@ -18,7 +19,7 @@ public:
 
     DatesService();
 
-    QList<QDate> getQuarterDatesForGroupForSubject(const Group& group, int quarter, const QString& subject) const;
+    MyList<QDate> getQuarterDatesForGroupForSubject(const Group& group, int quarter, const QString& subject) const;
     DateRange getQuarterDateRange(int quarter) const;
     bool isDateInQuarter(const QDate& date, int quarter) const;
 

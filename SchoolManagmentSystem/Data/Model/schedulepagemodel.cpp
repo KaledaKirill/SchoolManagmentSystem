@@ -1,10 +1,8 @@
 #include "schedulepagemodel.h"
-#include "../../Data/DAO/scheduledao.h"
 #include "../../Data/DAO/groupsdao.h"
 
 SchedulePageModel::SchedulePageModel()
-    : groupsDAO(new GroupsDAO),
-    scheduleDAO(new ScheduleDAO)
+    : groupsDAO(new GroupsDAO)
 {
     loadData();
 }

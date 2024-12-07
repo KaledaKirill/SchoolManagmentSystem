@@ -126,7 +126,7 @@ void JournalModel::setSubject(const QString& subjectName) {
     emit layoutChanged();
 }
 
-void JournalModel::setDates(const QList<QDate> &dates)
+void JournalModel::setDates(const MyList<QDate> &dates)
 {
     this->dates = dates;
     emit layoutChanged();

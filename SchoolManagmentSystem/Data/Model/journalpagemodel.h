@@ -2,7 +2,6 @@
 #define JOURNALPAGEMODEL_H
 
 #include "../DAO/igroupsdao.h"
-#include "../DAO/isubjectsdao.h"
 #include "../DAO/istudentsdao.h"
 #include "../../Utils/logger.h"
 #include "../Entity/group.h"
@@ -41,7 +40,6 @@ private:
     int currentQuarter;
 
     QScopedPointer<IGroupsDAO> groupsDAO;
-    QScopedPointer<ISubjectsDAO> subjectsDAO;
     QScopedPointer<IStudentsDAO> studentsDAO;
 
     QScopedPointer<DatesService> datesService;

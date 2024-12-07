@@ -25,7 +25,6 @@ private:
     ScheduleModel scheduleModel;
 
     QScopedPointer<IGroupsDAO> groupsDAO;
-    QScopedPointer<IScheduleDAO> scheduleDAO;
 
 };
 

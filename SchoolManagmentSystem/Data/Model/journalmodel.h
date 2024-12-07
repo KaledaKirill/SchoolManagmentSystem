@@ -4,6 +4,7 @@
 #include "../Entity/Student.h"
 #include "../Entity/validator.h"
 #include "../DAO/igradesdao.h"
+#include "../../Collections/mylist.h"
 
 #include <QAbstractTableModel>
 #include <QDate>
@@ -26,13 +27,13 @@ public:
 
     void setStudentList(const QList<Student>& externalStudents);
     void setSubject(const QString& subjectName);
-    void setDates(const QList<QDate>& dates);
+    void setDates(const MyList<QDate>& dates);
     void addDate(const QDate& date);
 
 private:
     QString currentSubject;
 
-    QList<QDate> dates;
+    MyList<QDate> dates;
     QList<Student> students;
 
     QScopedPointer<IGradesDAO> gradesDAO;

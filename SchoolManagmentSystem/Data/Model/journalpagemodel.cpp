@@ -1,12 +1,10 @@
 #include "journalpagemodel.h"
 #include "../DAO/groupsDAO.h"
 #include "../DAO/studentsDAO.h"
-#include "../DAO/subjectsdao.h"
-
+#include "../../Collections/mylist.h"
 
 JournalPageModel::JournalPageModel()
     : groupsDAO(new GroupsDAO),
-    subjectsDAO(new SubjectsDAO),
     studentsDAO(new StudentsDAO),
     datesService(new DatesService)
 {
@@ -29,7 +27,7 @@ void JournalPageModel::chooseSubject(const QString &subjectName)
 
     currentSubject = subjectName;
     journalModel.setSubject(subjectName);
-    journalModel.setDates(QList<QDate>());
+    journalModel.setDates(MyList<QDate>());
     currentGroup = groupsDAO->getGroup(currentGroup.getName());
 
     resJournalModel.setStudentList(currentGroup.getStudentsList());
@@ -66,7 +64,7 @@ void JournalPageModel::loadGroupData(const QString &groupName)
     currentGroup = groupsDAO->getGroup(groupName);
     subjectsListModel.setStringList(currentGroup.getSubjectsList());
     journalModel.setStudentList(currentGroup.getStudentsList());
-    journalModel.setDates(QList<QDate>());
+    journalModel.setDates(MyList<QDate>());
 }
 
 QStringListModel *JournalPageModel::getGroupsListModel()

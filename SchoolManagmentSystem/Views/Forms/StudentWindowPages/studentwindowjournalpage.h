@@ -4,7 +4,7 @@
 #include "../../Data/Entity/student.h"
 #include "../../Data/Model/studentjournalmodel.h"
 #include "../../Data/Model/studentresjournalmodel.h"
-#include "../../Data/Model/gradesservice.h"
+#include "../../Data/Model/GradesService.h"
 
 namespace Ui {
 class StudentWindow;

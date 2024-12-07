@@ -18,7 +18,7 @@ bool Validator::isSubjectValid(const QString& subject)
 
     static const QList<QString> validSubjects = {
         "белорусский язык и литература",
-        "русский язык и литература",
+        "русский язык",
         "математика",
         "физика",
         "химия",

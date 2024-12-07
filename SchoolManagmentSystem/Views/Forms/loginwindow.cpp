@@ -25,6 +25,8 @@ void LoginWindow::clickedBtnLogin()
 
     else if (ui->TeacherRadioButton->isChecked())
         loginAsTeacher();
+
+    clearForm();
 }
 
 void LoginWindow::loginAsStudent()
@@ -97,6 +99,13 @@ void LoginWindow::hideForm()
     ui->passwordLabel->setVisible(false);
     ui->passwordLineEdit->setVisible(false);
     ui->showPasswordCbx->setVisible(false);
+}
+
+void LoginWindow::clearForm()
+{
+    ui->classLineEdit->clear();
+    ui->nameLineEdit->clear();
+    ui->passwordLineEdit->clear();
 }
 
 void LoginWindow::onRadioButtonStudentToggled(bool checked)

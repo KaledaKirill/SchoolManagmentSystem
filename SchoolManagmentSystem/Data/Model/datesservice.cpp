@@ -5,9 +5,9 @@ DatesService::DatesService()
     initializeQuarterRanges();
 }
 
-QList<QDate> DatesService::getQuarterDatesForGroupForSubject(const Group& group, int quarter, const QString& subject) const
+MyList<QDate> DatesService::getQuarterDatesForGroupForSubject(const Group& group, int quarter, const QString& subject) const
 {
-    QList<QDate> result;
+    MyList<QDate> result;
 
     if (!quarterRanges.contains(quarter))
         return result;
@@ -28,10 +28,9 @@ QList<QDate> DatesService::getQuarterDatesForGroupForSubject(const Group& group,
         }
     }
 
-    std::sort(result.begin(), result.end());
+    std::sort(result.rabegin(), result.raend());
     return result;
 }
-
 
 DatesService::DateRange DatesService::getQuarterDateRange(int quarter) const
 {
@@ -40,7 +39,6 @@ DatesService::DateRange DatesService::getQuarterDateRange(int quarter) const
 
     return quarterRanges.value(quarter);
 }
-
 
 bool DatesService::isDateInQuarter(const QDate& date, int quarter) const
 {
