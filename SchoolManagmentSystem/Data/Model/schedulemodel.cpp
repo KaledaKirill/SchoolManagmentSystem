@@ -71,19 +71,27 @@ bool ScheduleModel::setData(const QModelIndex& index, const QVariant& value, int
         int lessonNumber = index.row() + 1;
         QString newSubject = value.toString();
 
-        if(!validator.isSubjectValid(newSubject))
+        if(!validator.isSubjectValid(newSubject) && newSubject != "")
         {
             QMessageBox::warning(0, "Неуспешная операция", "Такого предмета не существует.");
             return false;
         }
 
-        if (schedule.contains({dayOfWeek + 1, lessonNumber})) {
-            updateLesson(dayOfWeek + 1, lessonNumber, newSubject);
-        } else {
-            addLesson(newSubject, dayOfWeek + 1, lessonNumber);
+        if (newSubject == "")
+        {
+            if (schedule.contains({dayOfWeek + 1, lessonNumber}))
+                deleteLesson(dayOfWeek + 1, lessonNumber);
+            else
+                return true;
+        }
+        else
+        {
+            if (schedule.contains({dayOfWeek + 1, lessonNumber}))
+                updateLesson(dayOfWeek + 1, lessonNumber, newSubject);
+            else
+                addLesson(newSubject, dayOfWeek + 1, lessonNumber);
         }
 
-        schedule[{dayOfWeek + 1, lessonNumber}] = newSubject;
         emit dataChanged(index, index);
         return true;
     }
@@ -115,4 +123,5 @@ void ScheduleModel::updateLesson(int dayOfWeek, int number, const QString& newSu
 {
     QString oldSubject = schedule.value({dayOfWeek, number});
     scheduleDAO.updateLesson(oldSubject, newSubject, group, dayOfWeek, number);
+    schedule[{dayOfWeek, number}] = newSubject;
 }

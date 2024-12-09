@@ -56,18 +56,10 @@ QVariant JournalModel::headerData(int section, Qt::Orientation orientation, int 
     return QVariant();
 }
 
-bool JournalModel::setData(const QModelIndex& index, const QVariant& value, int role) {
+bool JournalModel::setData(const QModelIndex& index, const QVariant& value, int role)
+{
     if (!index.isValid() || role != Qt::EditRole)
         return false;
-
-    bool isNumber;
-    int intValue = value.toInt(&isNumber);
-
-    if (!isNumber || !validator.isGradeValueValid(intValue))
-    {
-        QMessageBox::warning(0, "Неуспешная операция", "Такой отметки не существует или значение некорректно");
-        return false;
-    }
 
     int row = index.row();
     int col = index.column();
@@ -78,33 +70,64 @@ bool JournalModel::setData(const QModelIndex& index, const QVariant& value, int 
     Student& student = students[row];
     QDate date = dates[col];
 
-    QVariant currentValue = data(index, Qt::DisplayRole);
-    bool gradeUpdated = false;
-    for (Grade& grade : student.getGradesList()) {
-        if (grade.getDate() == date && grade.getSubject() == currentSubject) {
-            if (value == currentValue)
-            {
-                gradesDAO->deleteGrade(grade);
-                gradeUpdated = true;
-                break;
-            }
+    bool isNumber = false;
+    int newGradeValue = value.toInt(&isNumber);
+    QString stringValue = value.toString();
 
-            Grade newGrade(value.toInt(), date, currentSubject, student.getStudentName());
-            gradesDAO->updateGrade(grade, newGrade);
-            student.updateGrade(grade, newGrade);
+    if ((!isNumber || !validator.isGradeValueValid(newGradeValue)) && !stringValue.isEmpty()) {
+        QMessageBox::warning(nullptr, tr("Неуспешная операция"), tr("Такой отметки не существует или значение некорректно"));
+        return false;
+    }
+
+    int oldGradeValue = data(index, Qt::DisplayRole).toInt();
+    Grade newGrade(newGradeValue, date, currentSubject, student.getStudentName());
+
+    if (!processStudentGrade(student, oldGradeValue, newGrade, stringValue.isEmpty()))
+        return false;
+
+    emit dataChanged(index, index);
+    return true;
+}
+
+bool JournalModel::processStudentGrade(Student& student, int oldGradeValue, const Grade& newGrade, bool removeGrade)
+{
+    bool gradeUpdated = false;
+
+    for (Grade& grade : student.getGradesList()) {
+        if (grade.getDate() == newGrade.getDate() && grade.getSubject() == newGrade.getSubject())
+        {
+            if (removeGrade || oldGradeValue == newGrade.getGradeValue())
+                deleteGrade(student, grade);
+            else
+                updateGrade(student, grade, newGrade);
+
             gradeUpdated = true;
             break;
         }
     }
 
-    if (!gradeUpdated) {
-        Grade newGrade(value.toInt(), date, currentSubject, student.getStudentName());
-        student.addGrade(newGrade);
-        gradesDAO->addGrade(newGrade);
-    }
+    if (!gradeUpdated && !removeGrade)
+        addGrade(student, newGrade);
 
-    emit dataChanged(index, index);
     return true;
+}
+
+void JournalModel::addGrade(Student& student, const Grade& grade)
+{
+    student.addGrade(grade);
+    gradesDAO->addGrade(grade);
+}
+
+void JournalModel::deleteGrade(Student& student, const Grade& grade)
+{
+    student.deleteGrade(grade);
+    gradesDAO->deleteGrade(grade);
+}
+
+void JournalModel::updateGrade(Student& student, const Grade& oldGrade, const Grade& newGrade)
+{
+    gradesDAO->updateGrade(oldGrade, newGrade);
+    student.updateGrade(oldGrade, newGrade);
 }
 
 Qt::ItemFlags JournalModel::flags(const QModelIndex& index) const

@@ -39,6 +39,11 @@ private:
     QScopedPointer<IGradesDAO> gradesDAO;
     Validator validator;
 
+    void addGrade(Student &student, const Grade &grade);
+    void deleteGrade(Student &student, const Grade &grade);
+    void updateGrade(Student &student, const Grade &oldGrade, const Grade &newGrade);
+    bool processStudentGrade(Student &student, int oldGradeValue, const Grade &newGrade, bool removeGrade);
+
 };
 
 #endif
