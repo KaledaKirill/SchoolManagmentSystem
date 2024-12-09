@@ -31,6 +31,10 @@
   <property name="windowTitle">
    <string>Авторизация</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../../Resources/resources.qrc">
+    <normaloff>:/icons/img/login.png</normaloff>:/icons/img/login.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">QWidget {
     background-color: #f0f0f0;
@@ -217,6 +221,8 @@ QRadioButton {
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="../../Resources/resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

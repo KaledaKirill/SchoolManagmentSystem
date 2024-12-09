@@ -19,6 +19,10 @@
   <property name="windowTitle">
    <string>Профиль ученика</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../../Resources/resources.qrc">
+    <normaloff>:/icons/img/student.png</normaloff>:/icons/img/student.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">QWidget {
     background-color: #f0f0f0;
@@ -72,10 +76,9 @@ QComboBox::drop-down {
 }
 
 QComboBox::down-arrow {
-    image: url(:resources\\images\\triangle.png); 
-    width: 12px; 
-    height: 12px; 
-    margin-top: 4px; 
+ 	image: url(:/images/row.png);
+	width: 16px;
+    height: 16px
 }
 
 QTabBar::tab {
@@ -296,6 +299,8 @@ QComboBox QAbstractItemView {
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../../Resources/resources.qrc"/>
+ </resources>
  <connections/>
 </ui>
