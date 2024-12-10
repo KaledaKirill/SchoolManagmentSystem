@@ -7,7 +7,7 @@ class NotWorkingRequest : public BaseException
 {
 public:
     NotWorkingRequest(const QString& message) : BaseException(message) {}
-    QString what() const { return "Not working request. Exception: " + _message; }
+    QString what() const { return "Not working request. Exception: " + message; }
 
 };
 

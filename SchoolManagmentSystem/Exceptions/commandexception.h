@@ -7,7 +7,7 @@ class CommandException : public BaseException
 {
 public:
     CommandException(const QString& message) : BaseException(message) {}
-    QString what() const { return "Not working Undo/Redo. Exception: " + _message; }
+    QString what() const { return "Not working Undo/Redo. Exception: " + message; }
 
 };
 

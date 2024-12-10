@@ -3,6 +3,7 @@
 
 #include <QInputDialog>
 #include <QShortcut>
+#include <QToolTip>
 
 TeacherWindow::TeacherWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -134,4 +135,3 @@ void TeacherWindow::setupShortcuts()
     QShortcut* redoShortcut = new QShortcut(QKeySequence::Redo, this);
     connect(redoShortcut, &QShortcut::activated, this, &TeacherWindow::clickedBtnRedo);
 }
-

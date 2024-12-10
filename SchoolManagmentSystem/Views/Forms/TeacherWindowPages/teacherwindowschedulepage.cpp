@@ -7,6 +7,9 @@ TeacherWindowSchedulePage::TeacherWindowSchedulePage(Ui::TeacherWindow* teacherW
 {
     ui->groupCbxOnScheduleWindow->setModel(schedulePageModel->getGroupsListModel());
     ui->scheduleTableView->setModel(schedulePageModel->getScheduleModel());
+
+    ui->scheduleTableView->horizontalHeader()->setDefaultSectionSize(130);
+    ui->scheduleTableView->verticalHeader()->setDefaultSectionSize(30);
 }
 
 void TeacherWindowSchedulePage::chooseGroup()

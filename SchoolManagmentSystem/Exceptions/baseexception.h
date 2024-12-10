@@ -6,13 +6,13 @@
 class BaseException
 {
 public:
-    BaseException(const QString& message) : _message(message) {}
+    BaseException(const QString& message) : message(message) {}
     virtual ~BaseException() noexcept = default;
 
-    virtual QString what() const { return "Exception: " + _message; }
+    virtual QString what() const { return "Exception: " + message; }
 
 protected:
-    QString _message;
+    QString message;
 
 };
 
