@@ -1,16 +1,13 @@
 #ifndef STUDENTNOTFOUND_H
 #define STUDENTNOTFOUND_H
 
-#include <QString>
+#include "notworkingrequest.h"
 
-class StudentNotFound
+class StudentNotFound : public NotWorkingRequest
 {
 public:
-    StudentNotFound(const QString& message) : _message(message) {}
+    StudentNotFound(const QString& message) : NotWorkingRequest(message) {}
     QString what() const { return "Student not found. Exception: " + _message; }
-
-private:
-    QString _message;
 
 };
 

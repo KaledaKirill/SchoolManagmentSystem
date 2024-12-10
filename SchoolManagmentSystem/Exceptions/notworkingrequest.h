@@ -1,16 +1,13 @@
 #ifndef NOTWORKINGREQUEST_H
 #define NOTWORKINGREQUEST_H
 
-#include <QString>
+#include "baseexception.h"
 
-class NotWorkingRequest
+class NotWorkingRequest : public BaseException
 {
 public:
-    NotWorkingRequest(const QString& message) : _message(message) {}
+    NotWorkingRequest(const QString& message) : BaseException(message) {}
     QString what() const { return "Not working request. Exception: " + _message; }
-
-private:
-    QString _message;
 
 };
 

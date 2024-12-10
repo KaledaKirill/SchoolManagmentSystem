@@ -1,11 +1,13 @@
 #include "teacherwindowgroupspage.h"
+#include "ui_teacherwindow.h"
 #include "../../Data/UndoRedo/addgroupcommand.h"
 #include "../../Data/UndoRedo/deletegroupcommand.h"
 #include "../../Data/UndoRedo/addstudentcommand.h"
 #include "../../Data/UndoRedo/deletestudentcommand.h"
 #include "../../Data/UndoRedo/addsubjectcommand.h"
 #include "../../Data/UndoRedo/deletesubjectcommand.h"
-#include "ui_teacherwindow.h"
+#include "../../Exceptions/commandexception.h"
+
 
 #include <QMessageBox>
 #include <QInputDialog>
@@ -42,7 +44,7 @@ void TeacherWindowGroupsPage::addGroup()
             groupsPageModel->getUndoStack()->push(command);
             QMessageBox::information(0, "Успешная операция", "Класс [" + groupName + "] был успешно добавлен.");
         }
-        catch (const std::exception& e)
+        catch (const CommandException& e)
         {
             QMessageBox::warning(0, "Неуспешная операция", "Видимо вы неправильно ввели класс либо такой класс уже добавлен, добавление нового невозможно.");
         }
@@ -61,7 +63,7 @@ void TeacherWindowGroupsPage::deleteGroup()
             groupsPageModel->getUndoStack()->push(command);
             QMessageBox::information(0, "Успешная операция", "Класс [" + groupName + "] был успешно удалён.");
         }
-        catch (const std::exception& e)
+        catch (const CommandException& e)
         {
             QMessageBox::warning(0, "Неуспешная операция", "Видимо класса с таким именем не существует, удаление невозможно.");
         }
@@ -82,7 +84,7 @@ void TeacherWindowGroupsPage::addSubject()
             groupsPageModel->getUndoStack()->push(command);
             QMessageBox::information(0, "Успешная операция", "Предмет [" + subjectName + "] был успешно добавлен.");
         }
-        catch (const std::exception& e)
+        catch (const CommandException& e)
         {
             QMessageBox::warning(0, "Неуспешная операция", "Такого предмета не существует либо он уже добавлен, добавление нового невозможно.");
         }
@@ -102,7 +104,7 @@ void TeacherWindowGroupsPage::deleteSubject()
             groupsPageModel->getUndoStack()->push(command);
             QMessageBox::information(0, "Успешная операция", "Предмет [" + subjectName + "] был успешно удалён.");
         }
-        catch (const std::exception& e)
+        catch (const CommandException& e)
         {
             QMessageBox::warning(0, "Неуспешная операция", "Видимо предмета с таким именем не существует, удаление невозможно.");
         }
@@ -122,7 +124,7 @@ void TeacherWindowGroupsPage::addStudent()
             groupsPageModel->getUndoStack()->push(command);
             QMessageBox::information(0, "Успешная операция", "Ученик [" + studentName + "] был успешно добавлен.");
         }
-        catch (const std::exception& e)
+        catch (const CommandException& e)
         {
             QMessageBox::warning(0, "Неуспешная операция", "Видимо вы неправильео ввели ФИО либо такой ученик уже добавлен, добавление нового невозможно.");
         }
@@ -142,7 +144,7 @@ void TeacherWindowGroupsPage::deleteStudent()
             groupsPageModel->getUndoStack()->push(command);
             QMessageBox::information(0, "Успешная операция", "Ученик [" + studentName + "] был успешно удалён.");
         }
-        catch (const std::exception& e)
+        catch (const CommandException& e)
         {
             QMessageBox::warning(0, "Неуспешная операция", "Видимо ученика с таким ФИО не существует, добавление удаление невозможно.");
         }

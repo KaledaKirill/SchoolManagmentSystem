@@ -1,4 +1,5 @@
 #include "deletesubjectcommand.h"
+#include "../../Exceptions/commandexception.h"
 
 DeleteSubjectCommand::DeleteSubjectCommand(GroupsPageModel* model, const QString& subjectName, QUndoCommand* parent)
     : QUndoCommand(parent), model(model), subjectName(subjectName) {}
@@ -6,7 +7,7 @@ DeleteSubjectCommand::DeleteSubjectCommand(GroupsPageModel* model, const QString
 void DeleteSubjectCommand::redo()
 {
     if(!model->deleteSubject(subjectName))
-        throw std::runtime_error("Deleting subject error.");
+        throw CommandException("Deleting subject error.");
     executed = true;
 }
 
@@ -15,7 +16,7 @@ void DeleteSubjectCommand::undo()
     if (executed)
     {
         if(!model->addSubject(subjectName))
-            throw std::runtime_error("Adding subject error.");
+            throw CommandException("Adding subject error.");
     }
 }
 

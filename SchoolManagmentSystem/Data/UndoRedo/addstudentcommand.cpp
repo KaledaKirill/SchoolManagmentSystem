@@ -1,4 +1,5 @@
 #include "addstudentcommand.h"
+#include "../../Exceptions/commandexception.h"
 
 AddStudentCommand::AddStudentCommand(GroupsPageModel* model, const QString& studentName, QUndoCommand* parent)
     : QUndoCommand(parent), model(model), studentName(studentName) {}
@@ -6,7 +7,7 @@ AddStudentCommand::AddStudentCommand(GroupsPageModel* model, const QString& stud
 void AddStudentCommand::redo()
 {
     if(!model->addStudent(studentName))
-        throw std::runtime_error("Adding student error.");
+        throw CommandException("Adding student error.");
     executed = true;
 }
 
@@ -15,7 +16,7 @@ void AddStudentCommand::undo()
     if (executed)
     {
         if(!model->deleteStudent(studentName))
-            throw std::runtime_error("Deleting student error.");
+            throw CommandException("Deleting student error.");
     }
 }
 

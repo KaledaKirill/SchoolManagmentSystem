@@ -61,6 +61,8 @@ HEADERS += \
     Data/UndoRedo/deletegroupcommand.h \
     Data/UndoRedo/deletestudentcommand.h \
     Data/UndoRedo/deletesubjectcommand.h \
+    Exceptions/baseexception.h \
+    Exceptions/commandexception.h \
     Utils/database.h \
     Utils/logger.h \
     Exceptions/notworkingrequest.h \
