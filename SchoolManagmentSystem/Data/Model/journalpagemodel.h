@@ -17,6 +17,7 @@ public:
     JournalPageModel();
 
     void loadData();
+    void loadResJournalData();
     void loadGroupData(const QString& groupName);
     void chooseGroup(const QString& groupName);
     void chooseSubject(const QString& subjectName);
@@ -45,6 +46,7 @@ private:
     QScopedPointer<DatesService> datesService;
 
     Logger log;
+
 };
 
 #endif

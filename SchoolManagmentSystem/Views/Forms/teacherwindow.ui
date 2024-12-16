@@ -139,7 +139,7 @@ QComboBox QAbstractItemView {
     <item>
      <widget class="QTabWidget" name="mainTabWidget">
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -380,7 +380,7 @@ QComboBox QAbstractItemView {
        </attribute>
        <layout class="QHBoxLayout" name="horizontalLayout_5">
         <item>
-         <widget class="QTabWidget" name="tabWidget_2">
+         <widget class="QTabWidget" name="journalTabWidget">
           <property name="currentIndex">
            <number>1</number>
           </property>

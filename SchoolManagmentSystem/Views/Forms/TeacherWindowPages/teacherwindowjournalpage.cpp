@@ -19,6 +19,11 @@ void TeacherWindowJournalPage::loadData()
     journalPageModel->loadData();
 }
 
+void TeacherWindowJournalPage::loadResData()
+{
+    journalPageModel->loadResJournalData();
+}
+
 void TeacherWindowJournalPage::chooseSubject()
 {
     const QString subjectName = ui->subjectsCbx->currentText();

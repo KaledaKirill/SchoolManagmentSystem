@@ -20,12 +20,12 @@ QVariant ResJournalModel::data(const QModelIndex& index, int role) const {
     const Student& student = students.at(index.row());
 
     if (role == Qt::DisplayRole) {
-        if (index.column() < 4) { // Четверти
+        if (index.column() < 4) {
             double average = gradesService->getAverageGradeForQuarter(student, currentSubject, index.column() + 1);
-            return average > 0.0 ? QString::number(average, 'f', 2) : "не аттестован";
-        } else if (index.column() == 4) { // За год
+            return average != -1.0 ? QString::number(average, 'f', 2) : "не аттестован";
+        } else if (index.column() == 4) {
             double average = gradesService->getAverageGradeForYear(student, currentSubject);
-            return average > 0.0 ? QString::number(average, 'f', 2) : "не аттестован";
+            return average != -1.0 ? QString::number(average, 'f', 2) : "не аттестован";
         }
     }
 

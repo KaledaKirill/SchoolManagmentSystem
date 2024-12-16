@@ -14,6 +14,7 @@ public:
     TeacherWindowJournalPage(Ui::TeacherWindow* teacherWindow);
 
     void loadData();
+    void loadResData();
     void chooseGroup();
     void chooseSubject();
     void chooseQuarter();

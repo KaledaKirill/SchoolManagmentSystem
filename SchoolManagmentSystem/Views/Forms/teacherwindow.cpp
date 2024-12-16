@@ -31,6 +31,7 @@ TeacherWindow::TeacherWindow(QWidget *parent)
 
     connect(ui->mainTabWidget, SIGNAL(currentChanged(int)), this, SLOT(clickedJournalTab(int)));
     connect(ui->mainTabWidget, SIGNAL(currentChanged(int)), this, SLOT(clickedScheduleTab(int)));
+    connect(ui->journalTabWidget, SIGNAL(currentChanged(int)), this, SLOT(clickedResJournalTab(int)));
 
     connect(ui->chooseSubjectBtn, SIGNAL(clicked(bool)), this, SLOT(clickedBtnChooseSubject()));
     connect(ui->chooseGroupBtnOnJournalPage, SIGNAL(clicked(bool)), this, SLOT(clickedBtnChooseGroupOnJournalPage()));
@@ -84,6 +85,12 @@ void TeacherWindow::clickedJournalTab(int index)
 {
     if(index == 1)
         teacherWindowJournalPage->loadData();
+}
+
+void TeacherWindow::clickedResJournalTab(int index)
+{
+    if(index == 1)
+        teacherWindowJournalPage->loadResData();
 }
 
 void TeacherWindow::clickedScheduleTab(int index)

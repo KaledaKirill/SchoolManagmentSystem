@@ -21,7 +21,7 @@ double GradesService::getAverageGradeForQuarter(const Student& student, const QS
         }
     }
 
-    return count > 0 ? static_cast<double>(total) / count : 0.0;
+    return count > 2 ? static_cast<double>(total) / count : -1.0;
 }
 
 double GradesService::getAverageGradeForYear(const Student& student, const QString& subject) const
@@ -39,7 +39,7 @@ double GradesService::getAverageGradeForYear(const Student& student, const QStri
         }
     }
 
-    return quarterCount > 0 ? totalAverage / quarterCount : 0.0;
+    return quarterCount > 0 ? totalAverage / quarterCount : -1.0;
 }
 
 double GradesService::getStudentAverageGradeForYear(const Student& student) const

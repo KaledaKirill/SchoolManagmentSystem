@@ -30,8 +30,14 @@ void JournalPageModel::chooseSubject(const QString &subjectName)
     journalModel.setDates(MyList<QDate>());
     currentGroup = groupsDAO->getGroup(currentGroup.getName());
 
+    loadResJournalData();
+}
+
+void JournalPageModel::loadResJournalData()
+{
+    currentGroup = groupsDAO->getGroup(currentGroup.getName());
     resJournalModel.setStudentList(currentGroup.getStudentsList());
-    resJournalModel.setSubject(subjectName);
+    resJournalModel.setSubject(currentSubject);
 }
 
 void JournalPageModel::chooseQuarter(int quarter)

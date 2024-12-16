@@ -36,6 +36,7 @@ private slots:
 
     void clickedJournalTab(int index);
     void clickedScheduleTab(int index);
+    void clickedResJournalTab(int index);
 
     void clickedBtnChooseGroupOnJournalPage();
     void clickedBtnChooseSubject();
