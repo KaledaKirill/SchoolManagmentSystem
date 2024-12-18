@@ -9,8 +9,8 @@ StudentWindowSchedulePage::StudentWindowSchedulePage(Ui::StudentWindow* studentW
     ui->scheduleTableView->setModel(scheduleModel);
     ui->scheduleTableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
-    ui->scheduleTableView->horizontalHeader()->setDefaultSectionSize(130);
-    ui->scheduleTableView->verticalHeader()->setDefaultSectionSize(30);
+    ui->scheduleTableView->horizontalHeader()->setDefaultSectionSize(150);
+    ui->scheduleTableView->verticalHeader()->setDefaultSectionSize(35);
 }
 
 StudentWindowSchedulePage::~StudentWindowSchedulePage()

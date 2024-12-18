@@ -11,6 +11,8 @@ TeacherWindow::TeacherWindow(QWidget *parent)
 {
     ui->setupUi(this);
     resize(minimumSizeHint());
+    ui->mainTabWidget->setCurrentIndex(0);
+    ui->journalTabWidget->setCurrentIndex(0);
 
     teacherWindowGroupsPage = std::make_unique<TeacherWindowGroupsPage>(ui);
     teacherWindowJournalPage = std::make_unique<TeacherWindowJournalPage>(ui);
